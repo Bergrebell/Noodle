@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'welcome/index'
+
   get 'tasks/new'
 
   get 'tasks/create'

@@ -8,8 +8,12 @@ class TasksController < ApplicationController
 
     @task = Task.new(task_params)
 
-    @task.save
-    redirect_to @task
+    if @task.save
+      redirect_to @task
+    else
+      render 'new'
+    end
+
   end
 
   def show
