@@ -10,7 +10,11 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to @task
+      #flash[:success] = "Great! Your task has been created!"
+
+
+      redirect_to :action => 'select_date', :id => @task
+
     else
       render 'new'
     end
@@ -18,6 +22,11 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task = Task.find(params[:id])
+  end
+
+
+  def select_date
     @task = Task.find(params[:id])
   end
 

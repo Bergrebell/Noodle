@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'tasks/create'
 
+  get 'tasks/select_date'
+
   resources :tasks
 
   root 'welcome#index'
