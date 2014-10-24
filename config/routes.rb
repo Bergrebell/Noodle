@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'welcome/index'
+
   get 'tasks/new'
 
   get 'tasks/create'
+
+  get 'tasks/select_date'
 
   resources :tasks
 
