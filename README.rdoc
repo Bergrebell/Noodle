@@ -5,4 +5,5 @@ Project Members: Roman Küpper, Amos Kromer, Nicolas Spycher
 == Project Description
 
 Our idea is to develop a Doodle-type application which lets you schedule events. The main difference of our application compared to doodle, is that with our application the user is able to assign priorities to every user. So let us say, that a group of people wants to schedule a meeting but already knows that it will not be possible to schedule a time and date so that every single person can attend the meeting. With this in mind, our application tries to determine the best available date, where the cumulated priorities of the people who can attend are the highest.
+
 The users will be able to sign in to our service and create events to which they can invite other signed up users. The person who created the event will be able to assign the priorities according to his or her preferences. Additional features of the application will be a comment section to discuss matters about the meeting, the possibility to upload meeting-related documents and a feature to export the date into a calendar.

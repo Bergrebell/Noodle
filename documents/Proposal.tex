@@ -1,0 +1,43 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{24.0pt}
+
+\rhead{
+	\begin{tabular}{r}
+		Amos Kromer, Roman Küpper, Nicolas Spycher\\
+		\\		
+	\end{tabular}
+}
+
+\lhead{
+	\begin{tabular}{l}
+		Web Engineering\\
+		AS 14
+	\end{tabular}
+}
+
+\begin{document}
+
+	\section{Proposal Mini-Project}
+	
+	\subsection{Idea}
+	
+	\par{Our idea is to develop a Doodle-type application which lets you schedule events. The main difference of our application compared to doodle, is that with our application the user is able to assign priorities to every user. So let us say, that a group of people wants to schedule a meeting but already knows that it will not be possible to schedule a time and date so that every single person can attend the meeting. With this in mind, our application tries to determine the best available date, where the cumulated priorities of the people who can attend are the highest.}
+	\par{The users will be able to sign in to our service and create events to which they can invite other signed up users. The person who created the event will be able to assign the priorities according to his or her preferences. Additional features of the application will be a comment section to discuss matters about the meeting, the possibility to upload meeting-related documents and a feature to export the date into a calendar.}
+	
+	\subsection{Tiers}
+	\par{The application will consist of three tiers which will consist of the following components}
+	
+	\begin{enumerate}
+		\item \textbf{Client tier}: This tear will render the output of the database, capture user events and feature form submissions for user sign up.
+		\item \textbf{Server tier}: The server tier will handle the scheduling of the events, accept sign up data, handle the file storage and keep track of the comment section
+		\item \textbf{Resource tier}. The resource tier will implement the data storage of the user profiles, the created events and the uploaded files.
+	\end{enumerate}
+	
+	\subsection{Framework}
+	\par{We decided to use Ruby on Rails for this project because we were convinced by the simplicity of this framework and furthermore we already have some experience with it and related languages. The resource tier will be handled by a relational database like mysql or sqlite3.}
+	
+\end{document}
