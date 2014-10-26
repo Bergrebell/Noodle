@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     end
 
     def login_attempt
-        authorized_user = User.authenticate(params[:username_or_email],params[:login_password])
+        puts authorized_user = User.authenticate(params[:username_or_email],params[:login_password])
         if authorized_user
             session[:user_id] = authorized_user.id
             flash[:notice] = "Wow Welcome again, you logged in as #{authorized_user.username}"

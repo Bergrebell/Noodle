@@ -2,19 +2,26 @@ Rails.application.routes.draw do
 
   #match ':controller(/:action(/:id))(.:format)', via: [:get, :post]
 
-  match "signup", :to => "users#new", via: [:get, :post]
-  post "login", to: "sessions#login_attempt"
-  get "login", to: "sessions#login"
-  match "logout", :to => "sessions#logout", via: [:get, :post]
-  match "home", :to => "sessions#home", via: [:get, :post]
-  match "profile", :to => "sessions#profile", via: [:get, :post]
-  match "setting", :to => "sessions#setting", via: [:get, :post]
+  get 'tasks/new'
+
+  get 'tasks/create'
+
+  get 'tasks/select_date'
+
+  get 'sessions/login'
+  post 'sessions/login', :to => 'sessions#login_attempt'
+
+  get "profile", :to => "sessions#profile"
+
+  resources :tasks
+  resources :users
+
+  root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
