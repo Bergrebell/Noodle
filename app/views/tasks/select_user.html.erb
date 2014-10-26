@@ -1,0 +1,14 @@
+<h1>Select User</h1>
+
+<% @user.each do |user| %>
+
+
+<%= form_tag("/todos/complete/", :method => "post") do %>
+
+    <li> <%= check_box_tag  "user_checkbox[]",user.id %> <%= user.username %></li>
+<% end %>
+
+
+   <%= submit_tag("Teilnehmer hinzufügen") %>
+<% end %>
+

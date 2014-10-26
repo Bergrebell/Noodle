@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  #mit attendees ist am ehesten "teilnahmen" gemeint
+    has_many :attendees
+    has_many :tasks, :through => :attendees
+
+
     attr_accessor :password
     EMAIL_REGEX = %r{\A.+@.+\z}xi
     validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }

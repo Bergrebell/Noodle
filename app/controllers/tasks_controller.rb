@@ -30,6 +30,23 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  def select_user
+    @user = User.all
+  end
+
+  #filling out the user select checkboxes
+  def participate
+    params[:user_checkbox].each do |check|
+      check_id = check
+      t = User.find_by_id(check_id)
+
+      if t.participate == true
+        t.update_attribute(:participate, false)
+      else
+        t.update_attribute(:participate, true)
+      end
+  end
+
 
   private
     def task_params
