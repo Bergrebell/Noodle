@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   #match ':controller(/:action(/:id))(.:format)', via: [:get, :post]
 
   get 'tasks/new'
-
   get 'tasks/create'
-
   get 'tasks/select_date'
+
+  get 'tasks/select_user'
 
   get 'sessions/login'
   post 'sessions/login', :to => 'sessions#login_attempt'
