@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'tasks/select_date'
 
   get 'tasks/select_user'
-  match "tasks/complete" => "todos#complete", :via => :post
+  match "tasks/participate" => "tasks#participate", :via => :post
 
   get 'sessions/login'
   post 'sessions/login', :to => 'sessions#login_attempt'

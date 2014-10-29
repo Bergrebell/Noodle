@@ -1,14 +1,18 @@
-<h1>Select User</h1>
-
-<% @user.each do |user| %>
+<h1>Select Users</h1>
 
 
-<%= form_tag("/todos/complete/", :method => "post") do %>
 
-    <li> <%= check_box_tag  "user_checkbox[]",user.id %> <%= user.username %></li>
+
+<%= form_tag("/tasks/participate/", :method => "post", :id => @task) do %>
+
+
+
+<ul>
+  <% @testuser.each do |testuser| %>
+    <li> <%= check_box_tag  "user_checkbox[]",testuser.id %> <%= testuser.username %></li>
 <% end %>
-
-
+</ul>
+   <%= hidden_field_tag :id, @task.id %>
    <%= submit_tag("Teilnehmer hinzufügen") %>
 <% end %>
 

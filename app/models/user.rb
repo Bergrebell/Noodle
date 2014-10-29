@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   #mit attendees ist am ehesten "teilnahmen" gemeint
-    has_many :attendees
-    has_many :tasks, :through => :attendees
+    #has_many :attendees
+    #has_many :tasks, :through => :attendees
 
 
     attr_accessor :password

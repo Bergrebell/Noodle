@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+family = Testuser.create([{ :username => 'Rudi' }, {:username => 'Karin'}, {:username => 'Leonie'}, {:username => 'Carolin'} ])
