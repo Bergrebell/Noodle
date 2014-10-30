@@ -1,11 +1,8 @@
 <h1>Participate Testsuite</h1>
 
-
-
-
 <ul>
   <% @participant_array.each do |name| %>
-    <li> <%= Testuser.find(name).username %> </li>
+    <li> <%= Testuser.find(name).username %> </li><p>Text</p>
   <% end %>
 
 </ul>

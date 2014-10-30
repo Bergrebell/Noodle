@@ -6,19 +6,13 @@ class TasksController < ApplicationController
 
   def create
     #render text: params[:task].inspect
-
     @task = Task.new(task_params)
-
     if @task.save
       #flash[:success] = "Great! Your task has been created!"
-
-
       redirect_to :action => 'select_date', :id => @task
-
     else
       render 'new'
     end
-
   end
 
   def show
@@ -35,22 +29,15 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
-
-
-
-  #filling out the user select checkboxes
+#filling out the user select checkboxes
   def participate
 
-    #participation_ids = params[:user_checkbox]
-
-# in case if you don't need to run validations and callbacks on each Attendee
-# you can make all job by 1 SQL UPDATE
-    #Attendee.where(testuser_id: params[:user_checkbox]).update_all(participate: true)
-    #@attendees = Attendee.where(testuser_id: params[:user_checkbox])
+#participation_ids = params[:user_checkbox]
 
     @task = Task.find(params[:id])
     @task.testusers << Testuser.all
-    @task.save
+    #@task.save
+
 # in case if you need to run validations and callbacks on each Attendee
 # you pull all records by 1 query and then update each
 
@@ -61,25 +48,23 @@ class TasksController < ApplicationController
       end
     end
 
-
-
-    #@all = Attendee.all
-    #@test = Attendee.where(participate: true)
-    #@usernames = Attendee.where(participate: true)
-     # @usernames.each do |userid|
-      #  Testuser.find(id: userid)
-      #end
-
-    @participant = Attendee.where(participate: true)
-    @participant_array = @participant.ids
-
-
-
+    @participant = Attendee.where(participate: true, task_id: params[:id])
+    #use pluck to query for a single field from a db!
+    @participant_array = @participant.pluck(:testuser_id)
+    @participant_array.uniq
     end
 
+
+
+  def user_weight
+
+  end
 
   private
     def task_params
       params.require(:task).permit(:title, :text)
     end
+
 end
+
+
