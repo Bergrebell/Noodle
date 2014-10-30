@@ -8,18 +8,24 @@ class UsersController < ApplicationController
 
         if @user.save
             flash[:notice] = "You signed up successfully"
-            flash[:color]= "valid"
             render "welcome/index"
         else
             flash[:notice] = "Form is invalid"
-            flash[:color]= "invalid"
             render "new"
+        end
+    end
+
+    def account
+        if current_user
+            render "sessions/account"
+        else
+            render "sessions/new"
         end
     end
 
     private
         def user_params
             params.require(:user).permit(
-                :username, :email, :password, :password_confirmation)
+                :username, :email, :password, :password_confirmation, :company)
         end
 end
