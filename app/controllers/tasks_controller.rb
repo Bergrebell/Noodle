@@ -57,7 +57,7 @@ class TasksController < ApplicationController
 
 
   def user_weight
-    
+
   end
 
   private
