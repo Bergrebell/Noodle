@@ -9,13 +9,14 @@ Rails.application.routes.draw do
   get 'tasks/select_user'
   match "tasks/participate" => "tasks#participate", :via => :post
 
-  get 'sessions/login'
-  post 'sessions/login', :to => 'sessions#login_attempt'
-
-  get "profile", :to => "sessions#profile"
-
   resources :tasks
+
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
   resources :users
+  resources :sessions
+ 
 
   root 'welcome#index'
 

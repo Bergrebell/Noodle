@@ -37,11 +37,9 @@ ActiveRecord::Schema.define(version: 20141027151350) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "username"
     t.string   "email"
-    t.string   "encrypted_password"
-    t.string   "salt"
-    t.string   "company"
+    t.string   "password_hash"
+    t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
