@@ -17,4 +17,12 @@ class SessionsController < ApplicationController
       session[:user_id] = nil
       redirect_to root_url, :notice => "Logged out!"
     end
+
+    def account
+        if current_user
+            render "account"
+        else
+            render "sessions/new"
+        end
+    end
 end

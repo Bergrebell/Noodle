@@ -8,9 +8,15 @@
 <h2>Your Friends</h2>
 <ul>
   <% for friendship in current_user.friendships %>
+    <% if friendship.friend %>
     <li>
-        <%= h friendship.friend.username %>
+        <%= link_to friendship.friend.username, controller: "users", action: "show", id: friendship.friend.id %>
         (<%= link_to "remove", friendship, :method => :delete %>)
     </li>
   <% end %>  
+<% end %>
 </ul>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>

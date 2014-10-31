@@ -15,12 +15,18 @@ class UsersController < ApplicationController
         end
     end
 
-    def account
-        if current_user
-            render "sessions/account"
-        else
-            render "sessions/new"
+    def show
+        @user = User.find(params[:id])
+        render "profile"
+    end
+
+    def index
+        @searchresults = User.search(params[:search])
+        p @searchresults
+        if @searchresults.empty?
+            @searchresults = User.where.not(:id => current_user.id)
         end
+        render "friendships/addFriends"
     end
 
     private
