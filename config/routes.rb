@@ -16,8 +16,11 @@ Rails.application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   get "account" => "sessions#account", :as => "account"
 
+  get "addfriends" => "friendships#new", :as => "addfriends"
+
   resources :users
   resources :sessions
+  resources :friendships
  
 
   root 'welcome#index'

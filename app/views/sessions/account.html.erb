@@ -2,4 +2,15 @@
 
 <div id="accountinfo">
     <%= current_user.company %>
+    <%= link_to "Add Friends", addfriends_path %>
 </div>
+
+<h2>Your Friends</h2>
+<ul>
+  <% for friendship in current_user.friendships %>
+    <li>
+        <%= h friendship.friend.username %>
+        (<%= link_to "remove", friendship, :method => :delete %>)
+    </li>
+  <% end %>  
+</ul>
