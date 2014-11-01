@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+
+});
+
+setTimeout(function() {
+    $(".flashmsg").hide('slow');
+}, 1000);

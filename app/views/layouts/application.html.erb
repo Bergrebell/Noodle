@@ -5,10 +5,31 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
-
-<%= yield %>
-
+    <header>
+        <div id="header_body">
+            <div id="logo">
+                <%= link_to image_tag("logo.png", id: "logo", height: 45), root_path %>
+            </div>
+            <div id="nav">
+                <% if current_user %>
+                    <div class="navelement">
+                        <%= link_to "My Account", account_path %>
+                    </div>
+                    <div class="navelement">
+                        <%= link_to "Log out", logout_path %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <div id="content">
+            <%= yield %>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,14 +1,35 @@
-<h1>Welcome to the Noodle Project!</h1>
-
 <% if current_user %>
-    <%= link_to "Log out", logout_path %>
-    <%= link_to "Noodle erstellen", new_task_path %>
-    <%= link_to "My Account", account_path %>
-<% else %>
-    <%= link_to "Sign up", signup_path %> or
-    <%= link_to "log in", login_path %>
+    <div class="flashmsg">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+    </div>
 <% end %>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% if not current_user %>
+    <h1 id="welcome">Welcome to the Noodle Project</h1>
+<% end %>
+
+<div id="penlong">
+    <%= image_tag("penlong.png",  height: 500) %>
+</div>
+
+<% if not current_user %>
+    <%= link_to signup_path do %>    
+        <div class="buttonhome" id="signup">
+            Sign up
+        </div>
+    <% end %>
+    
+    <%= link_to login_path do%>
+        <div class="buttonhome" id="login">
+            Login
+        </div>
+    <% end %>
+<% else %>
+    <%= link_to new_task_path do%>
+        <div class="buttonhome" id="noodlen">
+            Noodle erstellen
+        </div>
+    <% end %>
 <% end %>
