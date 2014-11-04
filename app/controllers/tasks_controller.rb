@@ -48,18 +48,16 @@ class TasksController < ApplicationController
       end
     end
 
-    @participant = Attendee.where(participate: true, task_id: params[:id])
-    #use pluck to query for a single field from a db!
-    @participant_array = @participant.pluck(:user_id)
-    @participant_array.uniq
-
     redirect_to :action => 'user_weight', :id => @task
 
   end
 
 
   def user_weight
-
+    @participant = Attendee.where(participate: true, task_id: params[:id])
+    #use pluck to query for a single field from a db!
+    @participant_array = @participant.pluck(:user_id)
+    @participant_array.uniq
   end
 
   private
