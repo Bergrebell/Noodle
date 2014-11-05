@@ -30,6 +30,10 @@ header {
     background-color: #90AEEB;
 }
 
+::selection {
+    background: #EC4E34;
+}
+
 .flashmsg {
     font-size: 30px;
     color: #EC4E34;
@@ -113,7 +117,7 @@ a {
     background-color: #EC4E34;
     width: 160px;
     text-align: center;
-    padding: 15px 0 10px 0;
+    padding: 17px 0 10px 0;
     border-radius: 4px;
     color: white;
     font-size: 30px;
@@ -124,11 +128,11 @@ a {
         opacity: 1;
     }
 
-        .buttonhome #login {
+        .buttonhome #loginbutton {
             float: left;
         }
 
-        .buttonhome #signup {
+        .buttonhome #signupbutton {
             float: right;
         }
 
@@ -140,4 +144,39 @@ a {
     text-align: center;
 }
 
+.inputform {
 
+}
+
+    .inputform form {
+        margin: auto;
+        width: 350px;
+        margin-top: 150px;
+    }
+
+        .inputform form input{
+            width: 300px;
+            height: 30px;
+            font-size: 20px;
+            border-radius: 4px;
+            border: 1px solid #EC4E34;
+            color: inherit;
+        }
+
+.buttoninput {
+    background-color: #EC4E34;
+    height: 40px !important;
+    font-size: 30px;
+    opacity: 0.9;
+    color: white !important;
+    cursor: pointer;
+}
+
+    .buttoninput:hover {
+        opacity: 1;
+    }
+
+.avatar {
+    border-radius: 75px;
+    opacity: 0.7;
+}

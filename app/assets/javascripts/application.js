@@ -16,9 +16,35 @@
 //= require_tree .
 
 $(function() {
+    setTimeout(function() {
+        $(".flashmsg").hide('slow');
+    }, 1000);
 
+    $("#password, #user_password").attr("placeholder", "Password");
+    $("#user_password_confirmation").attr("placeholder", "Confirm Password");
+
+    $("#loginbutton").mouseover(function() {
+        $(this).text('');
+        $(this).append('<i></i>');
+        $("i").css("position", "relative");
+        $("i").css("top", 2);
+        $("i").attr("class", "fa fa-sign-in");
+    });
+
+    $("#loginbutton").mouseleave(function() {
+        $(this).text('Login');
+    });
+
+    $("#signupbutton").mouseover(function() {
+        $(this).text('');
+        $(this).append('<i></i>');
+        $("i").css("position", "relative");
+        $("i").css("top", 2);
+        $("i").attr("class", "fa fa-plus-square-o");
+    });
+
+    $("#signupbutton").mouseleave(function() {
+        $(this).text('Sign up');
+    });
 });
 
-setTimeout(function() {
-    $(".flashmsg").hide('slow');
-}, 1000);
