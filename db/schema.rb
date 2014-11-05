@@ -11,8 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 
 ActiveRecord::Schema.define(version: 20141104115957) do
+=======
+ActiveRecord::Schema.define(version: 20141104205103) do
+>>>>>>> User weight feature started
 
   create_table "attendees", force: true do |t|
     t.integer  "task_id"
@@ -20,6 +24,7 @@ ActiveRecord::Schema.define(version: 20141104115957) do
     t.boolean  "participate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_weight"
   end
 
   create_table "friendships", force: true do |t|
