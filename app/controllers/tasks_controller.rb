@@ -25,7 +25,7 @@ class TasksController < ApplicationController
   end
 
   def select_user
-    @testuser = Testuser.all
+    @user = User.all
     @task = Task.find(params[:id])
   end
 
@@ -35,13 +35,13 @@ class TasksController < ApplicationController
 #participation_ids = params[:user_checkbox]
 
     @task = Task.find(params[:id])
-    @task.testusers << Testuser.all
+    @task.users << User.all
     #@task.save
 
 # in case if you need to run validations and callbacks on each Attendee
 # you pull all records by 1 query and then update each
 
-    @attendees = Attendee.where(testuser_id: params[:user_checkbox])
+    @attendees = Attendee.where(User_id: params[:user_checkbox])
     Attendee.transaction do
       @attendees.each do |attendee|
         attendee.update_attributes!(participate: true)
@@ -50,10 +50,12 @@ class TasksController < ApplicationController
 
     @participant = Attendee.where(participate: true, task_id: params[:id])
     #use pluck to query for a single field from a db!
-    @participant_array = @participant.pluck(:testuser_id)
+    @participant_array = @participant.pluck(:user_id)
     @participant_array.uniq
-    end
 
+    redirect_to :action => 'user_weight', :id => @task
+
+  end
 
 
   def user_weight

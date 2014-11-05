@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :attendees
+  has_many :tasks, :through => :attendees
   
   has_many :friendships
   has_many :friends, :through => :friendships

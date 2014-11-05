@@ -2,7 +2,7 @@
 
 <ul>
   <% @participant_array.each do |name| %>
-    <li> <%= Testuser.find(name).username %> </li><p>Text</p>
+    <li> <%= User.find(name).username %> Text </li>
   <% end %>
 
 </ul>

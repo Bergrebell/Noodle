@@ -1,0 +1,11 @@
+<h1>Testpage - NEW</h1>
+
+<%= form_for @testtask, url: {action: "create"} do |f| %>
+    <p>name</p>
+    <%= f.text_field :title %>
+    <p>beschreibung</p>
+    <%= f.text_field :text %>
+
+
+    <%= f.submit "Create" %>
+<% end %>

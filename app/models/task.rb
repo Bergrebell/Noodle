@@ -1,13 +1,13 @@
 class Task < ActiveRecord::Base
   has_many :attendees
-  has_many :testusers, :through => :attendees
+  has_many :users, :through => :attendees
 
 
 
   validates :title, presence: true,
-            length: { minimum: 5 }
+            length: { minimum: 1 }
 
   validates :text, presence: true,
-            length: { minimum: 10 }
+            length: { minimum: 1 }
 
 end

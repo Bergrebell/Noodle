@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get 'tasks/new'
   get 'tasks/create'
   get 'tasks/select_date'
-
+  get 'tasks/user_weight', :as => "user_weight"
   get 'tasks/select_user'
+
   match "tasks/participate" => "tasks#participate", :via => :post
 
   resources :tasks
@@ -24,6 +25,18 @@ Rails.application.routes.draw do
  
 
   root 'welcome#index'
+
+
+
+####TESTAREA###################################
+  get "welcome/create" => "welcome#create", :as => "test"
+  get "welcome/new" => "welcome#new"
+  match "welcome/create" => "welcome#create", :via => :post
+###############################################
+
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
