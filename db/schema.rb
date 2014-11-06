@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-
-ActiveRecord::Schema.define(version: 20141104115957) do
-=======
 ActiveRecord::Schema.define(version: 20141104205103) do
->>>>>>> User weight feature started
 
   create_table "attendees", force: true do |t|
     t.integer  "task_id"

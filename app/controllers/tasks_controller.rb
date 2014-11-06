@@ -24,6 +24,12 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  def create_date
+    @task = Task.find(params[:id])
+    @task.update_attributes!(meeting_date: params[:tasks][:meeting_date], meeting_start_time: params[:tasks][:started_at], meeting_end_time: params[:tasks][:ended_at])
+    redirect_to :action => 'select_user', :id => @task
+  end
+
   def select_user
     @user = User.all
     @task = Task.find(params[:id])
@@ -49,7 +55,6 @@ class TasksController < ApplicationController
     end
 
     redirect_to :action => 'user_weight', :id => @task
-
   end
 
 

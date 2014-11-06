@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'tasks/select_user'
 
   match "tasks/participate" => "tasks#participate", :via => :post
+  match "tasks/create_date" => "tasks#create_date", :via => :patch, :as => "create_date"
 
   resources :tasks
 

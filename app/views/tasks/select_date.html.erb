@@ -1,12 +1,23 @@
-<p>Titel: <%= @task.title %></p>
-<p>Beschreibung: <%= @task.text %></p>
-
 <p>Select Date:</p>
 
-<%= link_to "Placeholder for create EventButton", tasks_select_user_path(:id => @task) %>
+
+<p>Titel: <%= @task.title %></p>
 
 
-#Amos Form
+<%= form_for @task, :url => {action: "create_date"}, :html => {:id => @task.id} do |f| %>
 
-
+    <p><%= f.label :meeting_date, "Meeting Date" %>
+      <!--date_field needs a second parameter user date_field(:user, :meeting_date) user created by Nic-->
+      <%= date_field("tasks", "meeting_date") %></p>
+    <p><%= f.label :meeting_start_time, "Meeting Start Time" %>
+      <!--time_field needs a first parameter task created by Roman Kuepper)-->
+      <%= time_field("tasks", "started_at") %></p>
+    <p><%= f.label :meeting_end_time, "Meeting End Time" %>
+      <!--time_field needs a first parameter task created by Roman Kuepper)-->
+      <%= time_field("tasks", "ended_at") %></p>
+    <p>
+      <%= hidden_field_tag :id, @task.id %>
+      <%= button_to "Create Meeting", action: "create" %>
+    </p>
+<% end %>
 
