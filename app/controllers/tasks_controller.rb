@@ -5,7 +5,6 @@ class TasksController < ApplicationController
   end
 
   def create
-    #render text: params[:task].inspect
     @task = Task.new(task_params)
     if @task.save
       #flash[:success] = "Great! Your task has been created!"
@@ -35,17 +34,9 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
-#filling out the user select checkboxes
   def participate
-
-#participation_ids = params[:user_checkbox]
-
     @task = Task.find(params[:id])
     @task.users << User.all
-    #@task.save
-
-# in case if you need to run validations and callbacks on each Attendee
-# you pull all records by 1 query and then update each
 
     @attendees = Attendee.where(User_id: params[:user_checkbox])
     Attendee.transaction do
@@ -63,6 +54,18 @@ class TasksController < ApplicationController
     #use pluck to query for a single field from a db!
     @participant_array = @participant.pluck(:user_id)
     @participant_array.uniq
+  end
+
+
+  def create_user_weight
+    @participant = Attendee.where(participate: true, task_id: params[:id])
+    #use pluck to query for a single field from a db!
+    @participant_array = @participant.pluck(:user_id)
+    @participant_array.uniq
+
+
+
+
   end
 
   private

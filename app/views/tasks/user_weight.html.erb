@@ -10,6 +10,14 @@
 
 
 
-<%= form_for @participant do |f| %>
-    <%= f.select :user_weight, [[1], [2]]  %>
+<%= form_for @participant_array, :url => {action: "create_user_weight"} do |f| %>
+
+
+    <p><%= f.label :user_weight, "User Weight" %>
+    <p> <%= f.select(:attendees, [['One', 1], ['Two', 2]]) %> </p>
+
+    <p>
+      <%= hidden_field_tag :id, @task.id %>
+      <%= button_to "Select User Weight", action: "create" %>
+    </p>
 <% end %>

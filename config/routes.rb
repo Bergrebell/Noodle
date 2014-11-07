@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   match "tasks/participate" => "tasks#participate", :via => :post
   match "tasks/create_date" => "tasks#create_date", :via => :patch, :as => "create_date"
+  match "tasks/create_user_weight" => "tasks#create_user_weight", :via => :patch, :as => "create_user_weight"
+
 
   resources :tasks
 
@@ -23,7 +25,8 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :friendships
- 
+
+
 
   root 'welcome#index'
 
