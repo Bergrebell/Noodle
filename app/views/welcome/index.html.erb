@@ -14,22 +14,27 @@
     <%= image_tag("penlong.png",  height: 500) %>
 </div>
 
-<% if not current_user %>
-    <%= link_to signup_path do %>    
-        <div class="buttonhome" id="signupbutton">
-            Sign up
-        </div>
+<div class="floatright" id="introtext">
+    <p>Our idea is to develop a Doodle-type application which lets you schedule events. The main difference of our application compared to doodle, is that with our application the user is able to assign priorities to every user. So let us say, that a group of people wants to schedule a meeting but already knows that it will not be possible to schedule a time and date so that every single person can attend the meeting. With this in mind, our application tries to determine the best available date, where the cumulated priorities of the people who can attend are the highest.</p>
+
+    <% if not current_user %>
+        <%= link_to signup_path do %>    
+            <div class="buttonhome floatleft buttonshadow" id="signupbutton">
+                Sign up
+            </div>
+        <% end %>
+        
+        <%= link_to login_path do%>
+            <div class="buttonhome floatright buttonshadow" id="loginbutton">
+                Login
+            </div>
+        <% end %>
+    <% else %>
+        <%= link_to new_task_path do%>
+            <div class="buttonhome buttonshadow" id="noodlen">
+                Noodle erstellen
+            </div>
+        <% end %>
     <% end %>
-    
-    <%= link_to login_path do%>
-        <div class="buttonhome" id="loginbutton">
-            Login
-        </div>
-    <% end %>
-<% else %>
-    <%= link_to new_task_path do%>
-        <div class="buttonhome" id="noodlen">
-            Noodle erstellen
-        </div>
-    <% end %>
-<% end %>
+
+</div>

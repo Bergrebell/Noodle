@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-family = User.create([{ :username => 'Rudi', :email => 'rtest@test.de', :password => '12345' }, {:username => 'Karin', :email => 'ktest@test.de', :password => '12345'}, {:username => 'Leonie', :email => 'ltest@test.de', :password => '12345'}, {:username => 'Carolin', :email => 'ctest@test.de', :password => '12345'} ])
+family = User.create([{ :username => 'Rudi', :email => 'rtest@test.de', :password => '12345' }, { :username => 'Nic', :email => 'nic.spycher@gmail.com', :password => '12n12s' }, {:username => 'Karin', :email => 'ktest@test.de', :password => '12345'}, {:username => 'Leonie', :email => 'ltest@test.de', :password => '12345'}, {:username => 'Carolin', :email => 'ctest@test.de', :password => '12345'} ])
