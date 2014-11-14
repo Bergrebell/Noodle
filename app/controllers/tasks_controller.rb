@@ -28,7 +28,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     #@task.update_attributes!(meeting_date: params[:tasks][:meeting_date], meeting_start_time: params[:tasks][:started_at], meeting_end_time: params[:tasks][:ended_at])
     @taskdates = @task.selectdates.create(task_date: params[:tasks][:meeting_date])
-    #redirect_to :action => 'select_user', :id => @task
+
     redirect_to :action => 'select_date', :id => @task
 
   end

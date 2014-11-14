@@ -1,15 +1,24 @@
 <h1>Select dates for: <%= @task.title %></h1>
 
 <h3> List of Dates:</h3>
-    <% @taskdates.each do |f| %>
-        <p><%= f.task_date %></p>
-    <% end %>
+<% @taskdates.each do |f| %>
+    <p><%= f.task_date %></p>
+<% end %>
 
 <%= form_for @task, :url => {action: "create_date"} do |f| %>
 
     <p><%= f.label :meeting_date, "Meeting Date" %>
-      <%= date_field("tasks", "meeting_date") %></p>
+      <%= datetime_field("tasks", "meeting_date") %>
+    </p>
 
+<!--
+    <p><%= f.label :meeting_date, "Meeting Date" %>
+      <%= date_field("tasks", "meeting_date") %>
+    </p>
+    <p><%= f.label :meeting_start_time, "Meeting Start Time" %>
+      <%= time_field("tasks", "meeting_date") %></p>
+-->
+    
     <p>
       <%= hidden_field_tag :id, @task.id %>
       <%= button_to "Add Date"%>
@@ -17,7 +26,3 @@
 
     <%= link_to "Click here to continue", select_user_path(:id => @task) %>
 <% end %>
-
-
-
-
