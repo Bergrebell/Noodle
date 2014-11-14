@@ -1,33 +1,38 @@
-<%= form_for :task, url: tasks_path do |f| %>
+<div id="createNoodle">
 
-    <% if @task.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@task.errors.count, "error") %> prohibited
-            this task from being saved:</h2>
-          <ul>
-            <% @task.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
+  <h2>Create Noodle</h2>
+
+  <div class="inputform">
+    <%= form_for :task, url: tasks_path do |f| %>
+
+        <% if @task.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@task.errors.count, "error") %> prohibited
+                this task from being saved:</h2>
+              <ul>
+                <% @task.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+
+
+        <p>
+          <%= f.text_field :title, :placeholder => "Title" %>
+        </p>
+
+        <p>
+          <%= f.text_area :text, :placeholder => "Description" %>
+        </p>
+
+        <p>
+          <%= f.submit "Noodle erstellen", :class => "buttoninput buttonshadow"%>
+        </p>
     <% end %>
-
-
-
-    <p>
-      <%= f.label :title, "Titel" %><br>
-      <%= f.text_field :title %>
-    </p>
-
-    <p>
-      <%= f.label :text, "Beschreibung" %><br>
-      <%= f.text_area :text %>
-    </p>
-
-    <p>
-      <%= f.submit "Noodle erstellen" %>
-    </p>
-<% end %>
+  </div>
+</div>
 
 
 
