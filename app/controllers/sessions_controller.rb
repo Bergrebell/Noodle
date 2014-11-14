@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
 
     def account
         if current_user
+            p current_user.friendships
             render "account"
         else
             render "sessions/new"
