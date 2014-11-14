@@ -18,7 +18,7 @@
 $(function() {
     setTimeout(function() {
         $(".flashmsg").hide('slow');
-    }, 1000);
+    }, 2000);
 
     $("#password, #user_password").attr("placeholder", "Password");
     $("#user_password_confirmation").attr("placeholder", "Confirm Password");
@@ -46,5 +46,23 @@ $(function() {
     $("#signupbutton").mouseleave(function() {
         $(this).text('Sign up');
     });
+
+    $("#noodlen").mouseover(function() {
+        $(this).text('');
+        $(this).append('<i></i>');
+        $("i").css("position", "relative");
+        $("i").css("top", 2);
+        $("i").attr("class", "fa fa fa-calendar");
+    });
+
+    $("#noodlen").mouseleave(function() {
+        $(this).text('Noodlen');
+    });
+
+    /*$("#search").one("keypress", function() {
+        $("form").animate({
+            'margin-top': "-=130px"
+        }, 300);
+    });*/
 });
 

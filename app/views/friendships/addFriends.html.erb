@@ -1,9 +1,15 @@
-<%= form_tag users_path, :method => "get" do %>
-  <%= text_field_tag :search, params[:search], :class => "inputform" %>
-  <%= submit_tag "Search", :name => nil, :class => "button" %>
+<%= link_to account_path  do%>
+  <i class="fa fa-arrow-left"></i>
 <% end %>
 
-<% if @users %>
+<div class="inputform inputsearch" id="friendsearch">
+  <%= form_tag users_path, :method => "get" do %>
+    <%= text_field_tag :search, params[:search], :class => "inputform" %>
+    <%= submit_tag "Search", :name => nil, :class => "buttoninput buttonshadow"%>
+  <% end %>
+</div>
+
+<!--<% if @users %>
     <% for user in @users %>
         <% if user != current_user %>
           <div class="user">
@@ -16,17 +22,39 @@
         <% end %>
     <% end %>
 <% end %>
+-->
 
-<% if @searchresults %>
+<div id="asearch">
+  <% if @searchresults != nil %>
     <% for result in @searchresults %>
-        <%= link_to result.username, controller: "users", action: "show", id: result.id %>
-        <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
-        <div class="clear"></div>
+      <%= link_to (result), :action => :show, :id => result.id do %>
+        <div class="friend floatleft">
+          <div class="avatar_small floatleft">
+            <%= image_tag avatar_url(result, 50), :class => "avatar" %>
+          </div>
+          <div class="fname floatleft">
+            <%= result.username %>
+          </div>
+          <div class="fcompany floatleft">
+            <%= result.company %>
+          </div>
+          <div class="fadd">
+            <%= link_to friendships_path(:friend_id => user), :method => :post do%>
+              <i class="fa fa-plus"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-<% end %>
+  <% else %>
+    <div class="flashmsg">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+    </div>
+  <% end %>
+</div>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
 
-<%= link_to "Back", account_path %>
+
+

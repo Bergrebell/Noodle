@@ -22,9 +22,9 @@ class UsersController < ApplicationController
 
     def index
         @searchresults = User.search(params[:search])
-        p @searchresults
         if @searchresults.empty?
-            @searchresults = User.where.not(:id => current_user.id)
+            @searchresults = nil
+            flash[:notice] = "Couldn't find a user with the name " + params[:search]
         end
         render "friendships/addFriends"
     end
