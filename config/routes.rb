@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'tasks/create'
   get 'tasks/select_date'
   get 'tasks/user_weight', :as => "user_weight"
-  get 'tasks/select_user'
+  get 'tasks/select_user', :as => "select_user"
 
   match "tasks/participate" => "tasks#participate", :via => :post
   match "tasks/create_date" => "tasks#create_date", :via => :patch, :as => "create_date"

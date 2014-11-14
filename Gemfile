@@ -40,3 +40,6 @@ gem "bcrypt-ruby", :require => "bcrypt"
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Selection of multiple dates in one form
+
+
