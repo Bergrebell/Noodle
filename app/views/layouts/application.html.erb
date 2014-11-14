@@ -15,10 +15,10 @@
             </div>
             <div id="nav">
                 <% if current_user %>
-                    <div class="navelement">
+                    <div class="navelement" id="account">
                         <%= link_to "My Account", account_path %>
                     </div>
-                    <div class="navelement">
+                    <div class="navelement" id="logout">
                         <%= link_to "Log out", logout_path %>
                     </div>
                 <% end %>

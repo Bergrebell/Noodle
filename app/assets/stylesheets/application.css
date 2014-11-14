@@ -107,7 +107,7 @@ a {
 }
 
     .navelement a {
-        color: #EC4E34;
+        color: #53616C;
         text-decoration: none;
     }
 
@@ -116,8 +116,14 @@ a {
         }
 
         .navelement a:hover {
-            color: inherit;
+            color: #EC4E34;
+            border-bottom: 2px solid;
+            transition: border-bottom .15s ease-in-out;
         }
+
+.fa-user {
+    margin-right: 40px;
+}
 
 #logo {
     float: left;
@@ -225,22 +231,25 @@ a {
     margin: 10px 0 0 10px;
 }
 
-#accountinfo {
+.accountinfo {
     margin-top: 20px;
     line-height: 1.5;
     margin-right: 30px;
+    padding-right: 30px;
+    height: 400px;
+    border-right: 1px solid #d6d7da;
 }
 
-    #accountinfo p {
+    .accountinfo p {
         margin: 0;
         margin-bottom: 10px;
     }
 
-    #accountinfo a {
+    .accountinfo a {
         
     }
 
-    #accountinfo #username {
+    .accountinfo #username {
         font-weight: bold;
         margin: 0;
     }
@@ -286,12 +295,30 @@ a {
     margin: 75px 10px 10px 125px; 
 }
 
+.avatar_big {
+    border-radius: 125px;
+}
+
+.pname {
+    font-size: 40px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.pinfo {
+    margin-left: 50px;
+}
+
+.pemail {
+
+}
+
 #asearch {
     width: 500px;
     margin: auto;
     margin-top: 40px;
 }
 
-#friendsearch {
-}
+
+
 

@@ -1,6 +1,20 @@
-<%= @user.username %>
-<%= @user.company %>
-<%= @user.email %>
-<%= image_tag avatar_url(@user, 150), :class => "avatar" %>
+
+<div class="userprofile">
+    <div class="avatar_big floatleft">
+        <%= image_tag avatar_url(@user, 250), :class => "avatar_big" %>
+    </div>
+
+    <div class="pinfo floatleft">
+        <div class="pname">
+            <%= @user.username %>
+        </div>
+        <div class="pemail">
+            <%= mail_to @user.email %>
+        </div>
+        <div class="pcompany">
+            <%= @user.company %>
+        </div>
+    </div>
+</div>
 
 
