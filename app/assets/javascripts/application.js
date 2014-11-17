@@ -18,6 +18,8 @@
 //= require_tree .
 
 $(function() {
+    $("#task_meeting_date").datepicker();
+
     setTimeout(function() {
         $(".flashmsg").hide('slow');
     }, 2000);
