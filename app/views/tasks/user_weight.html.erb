@@ -1,23 +1,20 @@
-<h1>Participate Testsuite</h1>
+<h1>Participate Test suite</h1>
+
+
+
+<%= form_for @users, :url => {action: "create_user_weight"} do |f| %>
 
 <ul>
-  <% @participant_array.each do |name| %>
-      <li> <%= User.find(name).username %> Text </li>
+  <% @users.each do |user| %>
+      <li> <%= user.username %> <%= f.select(:attendee, :user_weight, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]) %> </li>
   <% end %>
-
+  <p>
+    <%= button_to "Select User Weight", action: "create" %>
+  </p>
+<% end %>
 </ul>
 
 
 
 
-<%= form_for @participant_array, :url => {action: "create_user_weight"} do |f| %>
 
-
-    <p><%= f.label :user_weight, "User Weight" %>
-    <p> <%= f.select(:attendees, [['One', 1], ['Two', 2]]) %> </p>
-
-    <p>
-      <%= hidden_field_tag :id, @task.id %>
-      <%= button_to "Select User Weight", action: "create" %>
-    </p>
-<% end %>

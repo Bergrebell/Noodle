@@ -22,7 +22,14 @@ Rails.application.routes.draw do
 
   get "addfriends" => "friendships#new", :as => "addfriends"
 
-  resources :users
+  resources :users do
+    collection do
+      update 'multiple_update'
+    end
+  end
+
+
+
   resources :sessions
   resources :friendships
 

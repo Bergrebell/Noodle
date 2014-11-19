@@ -42,5 +42,5 @@ gem "bcrypt-ruby", :require => "bcrypt"
 
 # Selection of multiple dates in one form
 
-
+gem 'jquery-datetimepicker-rails'
 
