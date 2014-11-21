@@ -55,30 +55,24 @@ class TasksController < ApplicationController
 
   def user_weight
     @participants = Attendee.where(participate: true, task_id: params[:id])
-    @users = @participants.map { |p| User.find_by id: p.user_id }.to_set.to_a
+    @task = Task.find(params[:id])
+    #@users = @participants.map { |p| User.find_by id: p.user_id }.to_set.to_a
   end
 
 
   def create_user_weight
     @participant = Attendee.where(participate: true, task_id: params[:id])
-    #use pluck to query for a single field from a db!
-    @participant_array = @participant.pluck(:user_id)
-    @participant_array.uniq
-
-
-  def multiple_update
-     @users = []
-     params[:users].each do |id, attributes|
-       if user = User.find_by_id(id)
-         if user.update_attributes(attributes)
-           @users << user
-         end
-       end
-     end
   end
 
 
+  def date_suggestion
+    @participants = Attendee.where(participate: true, task_id: params[:id])
+    @users = @participants.map { |p| User.find_by id: p.user_id }.to_set.to_a
+
   end
+
+
+
 
   private
     def task_params

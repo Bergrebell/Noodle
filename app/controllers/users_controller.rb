@@ -29,6 +29,18 @@ class UsersController < ApplicationController
         render "friendships/addFriends"
     end
 
+    def multiple_update
+      @users = []
+      params[:users].each do |id, attributes|
+        if user = Attendee.find_by_id(id)
+          if user.update_attributes!(attributes)
+            @users << user
+          end
+        end
+      end
+      redirect_to :controller => 'tasks', :action => 'date_suggestion', :id => params[:id]
+    end
+
     private
         def user_params
             params.require(:user).permit(

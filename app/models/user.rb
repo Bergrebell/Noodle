@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :attendees
+  has_many :attendees, dependent: :destroy
   has_many :tasks, :through => :attendees
   
   has_many :friendships
