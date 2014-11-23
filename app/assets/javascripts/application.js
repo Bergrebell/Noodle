@@ -18,7 +18,6 @@
 //= require_tree .
 
 $(function() {
-    $("#task_meeting_date").datepicker();
 
     setTimeout(function() {
         $(".flashmsg").hide('slow');
@@ -26,6 +25,7 @@ $(function() {
 
     $("#password, #user_password").attr("placeholder", "Password");
     $("#user_password_confirmation").attr("placeholder", "Confirm Password");
+    $("#tasks_meeting_date").attr("placeholder", "Meeting Date");
 
     $("#loginbutton").mouseover(function() {
         $(this).text('');
