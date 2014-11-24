@@ -34,7 +34,6 @@ class TasksController < ApplicationController
   end
 
   def select_user
-    @user = User.all
     @task = Task.find(params[:id])
   end
 

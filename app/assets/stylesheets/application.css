@@ -28,6 +28,12 @@ header {
     opacity: 0.99;
 }
 
+footer {
+    text-align: center;
+    height: 45px;
+    padding-top: 25px;
+}
+
 body {
     margin: 0 0 0 0;
     height: 100%;
@@ -74,7 +80,7 @@ a {
     }
 
 ::selection {
-    background: #EC4E34;
+    background: #90AEEB;
 }
 
 .flashmsg {
@@ -339,7 +345,7 @@ a {
 
     .view form {
         margin-top: 30px;
-        padding: 10px 0px 10px 30px;
+        padding: 10px 30px 10px 30px;
         box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24); 
     }
 
@@ -351,10 +357,6 @@ a {
     .view textarea {
         width: 300px;
         height: 200px;
-    }
-
-    .view .inputform form {
-        width: 340px;
     }
 
 .dates {
@@ -377,6 +379,28 @@ a {
 
 #select_date_title {
     margin-bottom: 30px;
+}
+
+#select_user_button {
+    margin: 50px 0 10px 0;
+    width: 100px;
+}
+
+.checkbox {
+    width: 25px;
+    height: 25px;
+    padding: 0 0 5px 5px;
+}
+
+.checkname {
+    padding: 6px 0 0 6px;
+    color: #EC4E34;
+}
+
+.checkfriend {
+    margin-bottom: 5px;
+    height: 25px;
+    width: 120px;
 }
 
 
