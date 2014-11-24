@@ -381,9 +381,9 @@ a {
     margin-bottom: 30px;
 }
 
-#select_user_button {
-    margin: 50px 0 10px 0;
-    width: 100px;
+.select_button {
+    margin: 25px 0 10px 0 !important;
+    width: 100px !important;
 }
 
 .checkbox {
@@ -401,6 +401,18 @@ a {
     margin-bottom: 5px;
     height: 25px;
     width: 120px;
+}
+
+.userweight {
+    margin-bottom: 5px;
+    height: 25px;
+    width: 120px;
+}
+
+.select_weight {
+    height: 25px;
+    width: 25px;
+    margin: 4px 0 0 5px;
 }
 
 

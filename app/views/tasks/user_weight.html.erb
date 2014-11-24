@@ -1,16 +1,23 @@
-<h1>Select the Weight</h1>
+<div class="view">
+    <h2>Select the Weight</h2>
 
-
-<%= form_tag multiple_update_users_path do %>
-    <ul>
-      <% @participants.each do |part| %>
-          <li> <%= part.user.username %> <%= select_tag "users[#{part.user.id}][user_weight]", options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]], part.user_weight) %> </li>
-      <% end %>
-    </ul>
-
-    <%= hidden_field_tag :id, @task.id %>
-    <%= submit_tag "Update" %>
-<% end %>
+    <div class="inputform">
+        <%= form_tag multiple_update_users_path do %>
+              <% @participants.each do |part| %>
+                <div class="userweight">
+                    <div class="checkname floatleft">
+                        <%= part.user.username %>
+                    </div>
+                    <div class="select_weight floatright">
+                        <%= select_tag "users[#{part.user.id}][user_weight]", options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]], part.user_weight) %>
+                    </div>
+                </div>
+              <% end %>
+            <%= hidden_field_tag :id, @task.id %>
+            <%= submit_tag "Update", :class => "buttoninput buttonshadow select_button" %>
+        <% end %>
+    </div>
+</div>
 
 
 
