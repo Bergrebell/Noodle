@@ -26,7 +26,9 @@
         <p>
           <%= f.text_area :text, :placeholder => "Description" %>
         </p>
-
+        <p>
+          <%= f.text_field :user_id, :id => "id_hide", :value => current_user.id %>
+        </p>
         <p>
           <%= f.submit "Noodle erstellen", :class => "buttoninput buttonshadow"%>
         </p>

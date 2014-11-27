@@ -40,3 +40,12 @@
     <% end %>
   </div>
 </div>
+
+<div class="floatleft" id="created_events">
+  <h2>Your created Events</h2>
+    <% for event in @events %>
+      <%= event.title %>
+      <%= event.text %>
+      <%= link_to("Event", controller: "tasks", action: "date_suggestion", id: event.id) %>
+    <% end %>
+</div>

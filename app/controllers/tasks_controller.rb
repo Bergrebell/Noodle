@@ -6,6 +6,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    p @task.user_id
     if @task.save
       #flash[:success] = "Great! Your task has been created!"
       redirect_to :action => 'select_date', :id => @task
@@ -75,7 +76,7 @@ class TasksController < ApplicationController
 
   private
     def task_params
-      params.require(:task).permit(:title, :text)
+      params.require(:task).permit(:title, :text, :user_id)
     end
 
 end

@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
 
     def account
         if current_user
+            @events = Task.where(user_id: current_user.id)
             render "account"
         else
             render "sessions/new"

@@ -1,7 +1,7 @@
 <p>Date Suggestions</p>
 
 
-<%= @participants.map do |part| %>
+<% @participants.map do |part| %>
     <li>Username: <%= part.user.username %> Userweight: <%= part.user_weight %> </li>
 <% end %>
 
