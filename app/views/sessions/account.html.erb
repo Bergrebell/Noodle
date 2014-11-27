@@ -49,6 +49,11 @@
           <div class="etitle">
             <%= event.title %>
           </div>
+          <div class="eremove">
+              <%= link_to (event), :method => :delete, :class => "floatright" do%>
+                <i class="fa fa-times"></i>
+              <% end %>
+            </div>
         </div>
       <% end %>
     <% end %>

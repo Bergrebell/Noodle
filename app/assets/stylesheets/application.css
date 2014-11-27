@@ -334,6 +334,14 @@ a {
 
 }
 
+.eremove {
+    margin: 55px 10px 10px 0;
+}
+
+.confirmbutton {
+    visibility: hidden;
+}
+
 #asearch {
     width: 500px;
     margin: auto;

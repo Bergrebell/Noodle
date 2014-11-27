@@ -80,5 +80,9 @@ $(function() {
             'margin-top': "-=130px"
         }, 300);
     });*/
+
+    $('.fa-times').click(function() {
+        $(this).next(".confirmbutton").css("visibility", "visible");
+    });
 });
 

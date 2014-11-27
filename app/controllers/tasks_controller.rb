@@ -15,6 +15,13 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    flash[:notice] = "Removed task"
+    redirect_to account_path
+  end
+
   def show
     @task = Task.find(params[:id])
   end
