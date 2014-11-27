@@ -21,6 +21,14 @@ class SessionsController < ApplicationController
     def account
         if current_user
             @events = Task.where(user_id: current_user.id)
+            @taskids = Attendee.where(user_id: current_user.id, participate: true).pluck(:task_id)
+            p @taskids
+            einvites = Array.new
+            @taskids.each do |id|
+              einvites.append(Task.where(id: id).flatten)
+            end
+            p einvites
+            @einvites = einvites
             render "account"
         else
             render "sessions/new"

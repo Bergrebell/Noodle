@@ -8,7 +8,7 @@
     <%= link_to "Add friends", addfriends_path, class: "button buttonshadow" %>
 </div>
 
-<div class="floatright" id="friendscontainer">
+<div class="floatright accountcontainer" id="friendscontainer">
   <h2>Your Friends</h2>
   <div class="flashmsg fmaccount">
     <% flash.each do |name, msg| %>
@@ -41,11 +41,28 @@
   </div>
 </div>
 
-<div class="floatleft" id="created_events">
-  <h2>Your created Events</h2>
+<div class="floatright accountcontainer" id="created_events">
+  <h2>Your created events</h2>
     <% for event in @events %>
-      <%= event.title %>
-      <%= event.text %>
-      <%= link_to("Event", controller: "tasks", action: "date_suggestion", id: event.id) %>
+      <%= link_to(controller: "tasks", action: "date_suggestion", id: event.id) do %>
+        <div class="event floatleft">
+          <div class="etitle">
+            <%= event.title %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+<div class="floatright accountcontainer" id="invites">
+  <h2>Your invites</h2>
+    <% for invite in @einvites %>
+      <% for event in invite %>
+        <%= link_to(controller: "responses", action: "new") do %>
+          <div class="invite floatleft">
+            <%= event.title %>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
 </div>
