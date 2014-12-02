@@ -1,9 +1,12 @@
 <div class="view">
   <h2 id="select_date_title">Select dates for: <%= @task.title %></h2>
 
-  <% @taskdates.each do |f| %>
+  <% @taskdates.each do |date| %>
     <div class="dates">
-      <p><%= f.task_date %></p>
+      <p><%= date.task_date %></p>
+      <%= link_to :url => "/delete_date", :id => date do%>
+        <i class="fa fa-times"></i>
+      <% end %>
     </div>
   <% end %>
 

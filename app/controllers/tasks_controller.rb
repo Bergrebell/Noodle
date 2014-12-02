@@ -31,7 +31,14 @@ class TasksController < ApplicationController
     @taskdates = @task.selectdates.create(task_date: params[:tasks][:meeting_date])
 
     redirect_to :action => 'select_date', :id => @task
+  end
 
+  def delete_date
+    @task = Task.find(params[:id])
+    @date = Selectdate.where(task_id: params[:id])
+    @date.destroy
+    flash[:notice] = "Date removed"
+    redirect_to :action => 'select_date', :id => @task
   end
 
   def select_user

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   match "tasks/participate" => "tasks#participate", :via => :post
   match "tasks/create_date" => "tasks#create_date", :via => :patch, :as => "create_date"
+  match "tasks/delete_date" => "tasks#delete_date", :via => :delete, :as => "delete_date"
   match "tasks/create_user_weight" => "tasks#create_user_weight", :via => :patch, :as => "create_user_weight"
 
 
