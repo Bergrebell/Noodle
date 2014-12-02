@@ -79,7 +79,9 @@ class TasksController < ApplicationController
   end
 
 
-  def date_suggestion
+  def event
+    @task = Task.where(id: params[:id])
+    @dates = Selectdate.where(task_id: params[:id])
     @participants = Attendee.where(participate: true, task_id: params[:id])
     @users = @participants.map { |p| User.find_by id: p.user_id }.to_set.to_a
 

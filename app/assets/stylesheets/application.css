@@ -19,6 +19,7 @@ html {
 
 header {
     width: 100%;
+    min-width: 800px;
     height: 50px;
     margin: 0 auto 0;
     display: block;
@@ -60,6 +61,7 @@ a {
     display: block;
     background-color: white;
     overflow: hidden;
+    min-width: 1000px;
 }
 
 #content {
@@ -67,6 +69,8 @@ a {
     padding-right: 50px;
     padding-bottom: 50px;
     padding-left: 50px;
+    min-height: 700px;
+    min-width: 500px;
 }
 
 .button {
@@ -155,6 +159,7 @@ a {
 
 #penlong {
     margin-top: 40px;
+    margin-bottom: 40px;
     float: left;
 }
 
@@ -280,7 +285,7 @@ a {
     width: 100%;
 }
 
-.friend, .event, .invite {
+.friend, .event, .invite, .participant {
     width: 150px;
     height: 100px;
     margin-right: 20px;
@@ -432,6 +437,71 @@ a {
     width: 25px;
     margin: 4px 0 0 5px;
 }
+
+.event-page {
+    width: 100%;
+    margin: auto;
+}
+
+.event-info {
+    width: 30%;
+    margin-right: 30px;
+    min-height: 500px;
+    min-width: 200px;
+    border-right: 1px solid #d6d7da;
+    padding: 0 10px 0 0;
+    margin-bottom: 40px;
+}
+
+    .event-info h2 {
+        width: auto;
+        text-align: left;
+    }
+
+.event-description {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.participants {
+    min-height: 250px;
+}
+
+    .participants h2 {
+        text-align: left;
+        margin-bottom: 20px;
+        margin-top: 30px;
+    }
+
+.event-dates {
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.event-date {
+    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+    color: #EC4E34;
+    margin: auto;
+    width: 110px;
+    height: 110px;
+    padding: 5px 5px 5px 5px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.day {
+    margin: auto;
+    text-align: center;
+    font-size: 70px;
+    font-weight: bolder;
+}
+
+    div .day {
+        margin-top: 30px;
+    }
+
+
 
 
 

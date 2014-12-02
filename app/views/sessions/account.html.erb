@@ -44,7 +44,7 @@
 <div class="floatright accountcontainer" id="created_events">
   <h2>Your created events</h2>
     <% for event in @events %>
-      <%= link_to(controller: "tasks", action: "date_suggestion", id: event.id) do %>
+      <%= link_to(controller: "tasks", action: "event", id: event.id) do %>
         <div class="event floatleft">
           <div class="etitle">
             <%= event.title %>

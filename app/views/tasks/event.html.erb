@@ -1,0 +1,56 @@
+<div id="event-view" class="view">
+
+    <div class="event-page">
+
+        <div class="event-info floatleft">
+            <h2><%= @task.first.title %></h2>
+            <div class="event-description">
+                <%= @task.first.text %>
+            </div>
+            <div class="suggested-dates">
+                <h2>Suggested Dates</h2>
+            </div>
+        </div>
+
+        <div class="event-dates">
+            <% for date in @dates do %>
+                <div class="event-date floatleft">
+                    <div class="month floatleft">
+                        <%= date.task_date.strftime("%B") %>
+                    </div>
+                    <div class="year floatright">
+                        <%= date.task_date.strftime("%Y") %>
+                    </div>
+                    <div class="day">
+                        <%= date.task_date.strftime("%d") %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="participants floatleft">
+            <h2>Participants</h2>
+            <% for participant in @participants do %>
+                <div class="participant floatleft">
+                    <div class="avatar_small floatleft">
+                        <%= image_tag avatar_url(participant.user, 50), :class => "avatar" %>
+                    </div>
+                    <div class="fname">
+                        <%= participant.user.username %>
+                    </div>
+                    <div class="fcompany">
+                        <%= participant.user.company %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="floatleft">
+            <% @participants.map do |part| %>
+                <li>Username: <%= part.user.username %> Userweight: <%= part.user_weight %> </li>
+            <% end %>
+        </div>
+    </div>
+</div>
+

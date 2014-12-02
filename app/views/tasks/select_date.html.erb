@@ -3,7 +3,7 @@
 
   <% @taskdates.each do |date| %>
     <div class="dates">
-      <p><%= date.task_date %></p>
+      <p><%= date.task_date.strftime("%A, %d %B %Y") %></p>
       <%= link_to :url => "/delete_date", :id => date do%>
         <i class="fa fa-times"></i>
       <% end %>

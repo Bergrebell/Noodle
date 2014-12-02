@@ -38,7 +38,7 @@ class UsersController < ApplicationController
           end
         end
       end
-      redirect_to :controller => 'tasks', :action => 'date_suggestion', :id => params[:id]
+      redirect_to :controller => 'tasks', :action => 'event', :id => params[:id]
     end
 
     private
