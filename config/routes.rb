@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'tasks/user_weight', :as => "user_weight"
   get 'tasks/select_user', :as => "select_user"
   get 'task/event' => "tasks#event", :as => "event"
+  post 'task/comments/create' => "comments#create"
 
   match "tasks/participate" => "tasks#participate", :via => :post
   match "tasks/create_date" => "tasks#create_date", :via => :patch, :as => "create_date"

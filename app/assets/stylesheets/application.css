@@ -378,7 +378,7 @@ a {
         height: 200px;
     }
 
-#id_hide {
+.id_hide {
     display: none;
 }
 
@@ -464,10 +464,10 @@ a {
 }
 
 .participants {
-    min-height: 250px;
+    
 }
 
-    .participants h2 {
+    .participants h2, .event-comments h2 {
         text-align: left;
         margin-bottom: 20px;
         margin-top: 30px;

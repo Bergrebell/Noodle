@@ -45,6 +45,27 @@
             <% end %>
         </div>
 
+        <div class="event-comments floatleft">
+            <a id="showcomments" class="btn-show">show</a>
+            <h2>Comments</h2>
+            <div id="comments">
+                <% for comment in @comments do %>
+                    <%= comment.username %>
+                    <%= comment.text %>
+                <% end %>
+            </div>
+            <%= form_for :comment, :url => "comments/create" do |f| %>
+            <%= f.text_field :username, :class => "id_hide", :value => current_user.username %>
+            <%= f.text_field :task_id, :class => "id_hide", :value => @task.first.id %>
+              <p>
+                <%= f.text_area :text, :placeholder => "Comment"%>
+              </p>
+              <p>
+                <%= f.submit %>
+                </p>
+            <% end %>
+        </div>
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <div class="floatleft">
             <% @participants.map do |part| %>

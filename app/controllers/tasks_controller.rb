@@ -6,7 +6,6 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    p @task.user_id
     if @task.save
       #flash[:success] = "Great! Your task has been created!"
       redirect_to :action => 'select_date', :id => @task
@@ -82,6 +81,7 @@ class TasksController < ApplicationController
   def event
     @task = Task.where(id: params[:id])
     @dates = Selectdate.where(task_id: params[:id])
+    @comments = Comment.where(task_id: params[:id])
     @participants = Attendee.where(participate: true, task_id: params[:id])
     @users = @participants.map { |p| User.find_by id: p.user_id }.to_set.to_a
 

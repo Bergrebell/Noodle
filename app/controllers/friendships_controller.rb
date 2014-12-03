@@ -14,14 +14,20 @@ class FriendshipsController < ApplicationController
     end
 
     def create
-        @friendship = current_user.friendships.build(:friend_id => params[:friend_id])    
-        if @friendship.save
-            flash[:notice] = "Friend added"
-            redirect_to addfriends_path
+        @myfriendships = Friendship.where(:user_id => current_user.id)
+        if not @myfriendships.exists?(:friend_id => params[:friend_id])
+            @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
+            if @friendship.save
+                flash[:notice] = "Friend added"
+                redirect_to addfriends_path
+            else
+                flash[:notice] = "Unable to add friend"
+                render "addFriends"
+            end
         else
-            flash[:notice] = "Unable to add friend"
+            flash[:notice] = "You are already friends with this user"
             render "addFriends"
-        end
+        end    
     end
 
     def destroy

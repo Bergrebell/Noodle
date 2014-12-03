@@ -84,5 +84,9 @@ $(function() {
     $('.fa-times').click(function() {
         $(this).next(".confirmbutton").css("visibility", "visible");
     });
+
+    $('#showcomments').click(function() {
+        $('#comments').toggle('show');
+    });
 });
 
