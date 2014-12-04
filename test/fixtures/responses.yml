@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  select_date_id: 1
+  user_id: 1
+  attend: false
+
+two:
+  select_date_id: 1
+  user_id: 1
+  attend: false

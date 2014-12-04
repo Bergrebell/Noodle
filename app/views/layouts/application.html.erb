@@ -19,7 +19,7 @@
                         <%= link_to "Noodlen", new_task_path %>
                     </div>
                     <div class="navelement" id="account">
-                        <%= link_to "My Account", account_path %>
+                        <%= link_to current_user.username, account_path %>
                     </div>
                     <div class="navelement" id="logout">
                         <%= link_to "Log out", logout_path %>

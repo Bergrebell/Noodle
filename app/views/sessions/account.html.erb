@@ -63,7 +63,7 @@
   <h2>Your invites</h2>
     <% for invite in @einvites %>
       <% for event in invite %>
-        <%= link_to(controller: "responses", action: "new") do %>
+        <%= link_to(controller: "responses", action: "new", id: event.id) do %>
           <div class="invite floatleft">
             <%= event.title %>
           </div>

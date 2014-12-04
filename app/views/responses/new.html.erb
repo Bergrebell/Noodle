@@ -1,1 +1,15 @@
-blubbi
+<div class="view">
+    <h2>Respond to invite</h2>
+    <div class="inputform">
+        <%= form_tag("/responses", :method => "post") do %>
+
+              <% for date in @dates %>
+                <% if date %>
+                    <%= check_box_tag  "date_checkbox[]", date.id %> 
+                    <%= date.task_date.strftime("%A, %d %B %Y %H:%M") %>
+                <% end %>
+              <% end %>
+            <%= submit_tag("Add", :class => "buttonshadow buttoninput select_button") %>
+        <% end %>
+    </div>
+</div>
