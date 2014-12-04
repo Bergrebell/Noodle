@@ -10,7 +10,7 @@ class ResponsesController < ApplicationController
             Response.create(selectdate_id: date.id, user_id: current_user.id)
           end
         end
-
+        
         redirect_to account_path
     end
 

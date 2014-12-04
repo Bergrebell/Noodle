@@ -47,7 +47,7 @@ h1 {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
     color: #EC4E34;
 }
 
@@ -62,6 +62,7 @@ a {
     background-color: white;
     overflow: hidden;
     min-width: 1000px;
+    max-width: 1030px;
     padding-bottom: 40px;
 }
 
@@ -289,21 +290,27 @@ a {
 .friend, .event, .invite, .participant {
     width: 150px;
     height: 100px;
-    margin-right: 20px;
     margin-bottom: 20px;
+    margin-right: 20px;
     border-radius: 2px;
     box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+}
+
+.event-icon {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 35px;
 }
 
 .invite {
     margin-bottom: 50px;
 }
 
-    .friend:hover {
+    .friend:hover, .invite:hover, .event:hover {
         box-shadow: 0 0 2px rgba(0,0,0,.24),0 2px 4px rgba(0,0,0,.34);
     }
 
-.fname {
+.fname, .etitle, .invite-title {
     margin: 10px 5px 0 10px;
 }
 
@@ -341,7 +348,7 @@ a {
 }
 
 .eremove {
-    margin: 55px 10px 10px 0;
+    margin: -5px 10px 10px 0;
 }
 
 .confirmbutton {
@@ -460,7 +467,7 @@ a {
 
 .participants {
     max-width: 510px;
-    margin-right: 84px;
+    margin-right: 50px;
 }
 
     .participants h2, .event-comments h2 {
@@ -502,7 +509,7 @@ a {
 
 .event-comments {
     max-width: 510px;
-    margin-right: 84px;
+    margin-right: 60px;
 }
 
     .event-comments form {

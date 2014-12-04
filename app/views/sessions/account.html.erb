@@ -49,6 +49,9 @@
           <div class="etitle">
             <%= event.title %>
           </div>
+          <div class="event-icon">
+              <i class="fa fa-calendar-o"></i>
+          </div>
           <div class="eremove">
               <%= link_to (event), :method => :delete, :class => "floatright" do%>
                 <i class="fa fa-times"></i>
@@ -65,7 +68,12 @@
       <% for event in invite %>
         <%= link_to(controller: "responses", action: "new", id: event.id) do %>
           <div class="invite floatleft">
-            <%= event.title %>
+            <div class="invite-title">
+              <%= event.title %>
+            </div>
+            <div class="event-icon">
+              <i class="fa fa-reply"></i>
+            </div>
           </div>
         <% end %>
       <% end %>
