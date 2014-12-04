@@ -501,6 +501,18 @@ a {
         margin-top: 30px;
     }
 
+.event-comments {
+    max-width: 510px;
+}
+
+#comments {
+    display: none;
+}
+
+#showcomments {
+    cursor: pointer;    
+}
+
 
 
 

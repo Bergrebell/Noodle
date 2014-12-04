@@ -32,8 +32,8 @@ class UsersController < ApplicationController
     def multiple_update
       @users = []
       params[:users].each do |id, attributes|
-        if user = Attendee.find_by_id(id)
-          if user.update_attributes!(attributes)
+        if user = Attendee.where(task_id: params[:id], user_id: id)
+          if user.first.update_attributes(attributes)
             @users << user
           end
         end
