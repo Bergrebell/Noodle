@@ -1,8 +1,6 @@
 class ResponsesController < ApplicationController
     def new
         @dates = Selectdate.where(task_id: params[:id])
-        p @dates
-        redirect_to "sessions/account"
     end
 
     def create
@@ -13,7 +11,7 @@ class ResponsesController < ApplicationController
           end
         end
 
-        redirect_to responses_path
+        redirect_to account_path
     end
 
     def show
