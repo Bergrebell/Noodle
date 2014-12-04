@@ -11,6 +11,8 @@ class ResponsesController < ApplicationController
           end
         end
         
+        attendee = Attendee.where(user_id: current_user.id, task_id: @dates.first.task_id).first
+        attendee.update_attribute(:answered, true)
         redirect_to account_path
     end
 
