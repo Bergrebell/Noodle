@@ -1,7 +1,5 @@
 <div id="event-view" class="view">
 
-    <div class="event-page">
-
         <div class="event-info floatleft">
             <h2><%= @task.first.title %></h2>
             <div class="event-description">
@@ -9,7 +7,31 @@
             </div>
             <div class="suggested-dates">
                 <h2>Suggested Dates</h2>
-                <%= Selectdate.where(id: @suggestion.first.to_i).first.task_date %>
+                    <div class="event-date date-suggestion">
+                        <div class="month floatleft">
+                            <%= Selectdate.where(id: @suggestion.first.first.to_i).first.task_date.strftime("%B") %>
+                        </div>
+                        <div class="year floatright">
+                            <%= Selectdate.where(id: @suggestion.first.first.to_i).first.task_date.strftime("%Y") %>
+                        </div>
+                        <div class="day">
+                            <%= Selectdate.where(id: @suggestion.first.first.to_i).first.task_date.strftime("%d") %>
+                        </div>
+                        <div class="time">
+                            <%= Selectdate.where(id: @suggestion.first.first.to_i).first.task_date.strftime("%H:%M") %>
+                        </div>
+                        <div class="score">
+                            Score: <%= @suggestion.first.second %>
+                        </div>
+                    </div>
+                <div class="runnerups">
+                    <% for i in 1..@suggestion.length - 1 do %>
+                        <div class="runnerup">
+                            <%= Selectdate.where(id: @suggestion[i].first.to_i).first.task_date.strftime("%d.%m.%y %H:%M") %>
+                            <span>Score: <%= @suggestion[i].second %></span>
+                        </div>
+                    <% end %>
+                </div>
             </div>
         </div>
 
@@ -25,11 +47,14 @@
                     <div class="day">
                         <%= date.task_date.strftime("%d") %>
                     </div>
+                    <div class="time">
+                        <%= date.task_date.strftime("%H:%M") %>
+                    </div>
                 </div>
             <% end %>
         </div>
 
-        <div class="participants floatleft">
+        <div class="participants floatright">
             <h2>Participants</h2>
             <% for participant in @participants do %>
                 <div class="participant floatleft">
@@ -46,35 +71,29 @@
             <% end %>
         </div>
 
-
-
-        <div class="event-comments floatleft">
+        <div class="event-comments floatright">
             <a id="showcomments" class="btn-show floatright">show</a>
             <h2>Comments</h2>
             <div id="comments">
                 <% for comment in @comments do %>
-                    <%= comment.username %>
-                    <%= comment.text %>
+                    <div class="comment">
+                        <div class="cmt-user floatleft">
+                            <%= comment.username %>
+                        </div>
+                        <div class="cmt-text floatright">
+                            <%= comment.text %>
+                        </div>
+                    </div>
                 <% end %>
             </div>
-            <%= form_for :comment, :url => "comments/create" do |f| %>
-            <%= f.text_field :username, :class => "id_hide", :value => current_user.username %>
-            <%= f.text_field :task_id, :class => "id_hide", :value => @task.first.id %>
-              <p>
-                <%= f.text_area :text, :placeholder => "Comment"%>
-              </p>
-              <p>
-                <%= f.submit %>
-                </p>
-            <% end %>
+            <div class="inputform">
+                <%= form_for :comment, :url => "comments/create" do |f| %>
+                    <%= f.text_field :username, :class => "id_hide", :value => current_user.username %>
+                    <%= f.text_field :task_id, :class => "id_hide", :value => @task.first.id %>
+                        <%= f.text_area :text%>
+                        <%= f.submit "send", class: "buttoninput buttonshadow floatright btn-comment" %>
+                <% end %>
+            </div>
         </div>
-    <!--
-        <div class="floatleft">
-            <% @participants.map do |part| %>
-                <li>Username: <%= part.user.username %> Userweight: <%= part.user_weight %> </li>
-            <% end %>
-        </div>
-    -->
-    </div>
 </div>
 

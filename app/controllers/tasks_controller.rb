@@ -98,11 +98,12 @@ class TasksController < ApplicationController
       responses = Response.where(selectdate_id: date.id)
       responses.each do |response|
         weight = Attendee.where(user_id: response.user_id, task_id: params[:id]).first.user_weight
-        score["#{date.id}"] += weight**2
+        score["#{date.id}"] += weight
       end
     end
-    score.sort_by { |k, v| v }.reverse
-    p @suggestion = score.first
+    score = score.sort_by{ |k, v| v }.reverse
+    @suggestion = score
+    p @suggestion
   end
 
 

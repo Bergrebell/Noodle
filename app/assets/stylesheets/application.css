@@ -62,6 +62,7 @@ a {
     background-color: white;
     overflow: hidden;
     min-width: 1000px;
+    padding-bottom: 40px;
 }
 
 #content {
@@ -258,7 +259,7 @@ a {
     line-height: 1.5;
     margin-right: 30px;
     padding-right: 30px;
-    height: 400px;
+    height: 100%;
     border-right: 1px solid #d6d7da;
 }
 
@@ -354,6 +355,7 @@ a {
 }
 
 .view {
+    min-height: 700px;
 }
 
     .view h2 {
@@ -438,19 +440,12 @@ a {
     margin: 4px 0 0 5px;
 }
 
-.event-page {
-    width: 100%;
-    margin: auto;
-}
-
 .event-info {
     width: 30%;
     margin-right: 30px;
-    min-height: 500px;
-    min-width: 200px;
+    height: 100%;
     border-right: 1px solid #d6d7da;
     padding: 0 10px 0 0;
-    margin-bottom: 40px;
 }
 
     .event-info h2 {
@@ -464,7 +459,8 @@ a {
 }
 
 .participants {
-    
+    max-width: 510px;
+    margin-right: 84px;
 }
 
     .participants h2, .event-comments h2 {
@@ -474,7 +470,6 @@ a {
     }
 
 .event-dates {
-    width: 70%;
     margin: auto;
     margin-top: 50px;
 }
@@ -498,11 +493,45 @@ a {
 }
 
     div .day {
-        margin-top: 30px;
+        margin-top: 20px;
     }
+
+.time {
+    text-align: center;
+}
 
 .event-comments {
     max-width: 510px;
+    margin-right: 84px;
+}
+
+    .event-comments form {
+        width: auto;
+    }
+
+    .event-comments textarea {
+        height: 100px;
+    }
+
+.comment {
+    overflow: auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d6d7da;
+}
+
+.cmt-user {
+    width: 20%;
+    color: #EC4E34;
+}
+
+.cmt-text {
+    width: 80%;
+}
+
+.btn-comment {
+    width: 60px !important;
+    margin-top: 35px !important;
+    margin-right: 20px !important;
 }
 
 #comments {
@@ -510,7 +539,34 @@ a {
 }
 
 #showcomments {
-    cursor: pointer;    
+    cursor: pointer;   
+    margin-top: 40px; 
+}
+
+.date-suggestion {
+    margin-right: 150px;
+    margin-top: 20px;
+}
+
+.runnerups {
+    margin-top: 40px;
+    line-height: 1.5;
+}
+
+.runnerup {
+    color: #EC4E34;
+}
+    
+    .runnerup span {
+        margin-left: 30px;
+    }
+
+.score {
+    margin-top: 10px !important;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
 }
 
  *= require jquery.timepicker.css
