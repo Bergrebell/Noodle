@@ -21,7 +21,8 @@ class UsersController < ApplicationController
     end
 
     def index
-        @searchresults = User.search(params[:search])
+        @searchresults = User.search(params[:search]).to_a
+        @searchresults.delete_if {|result| result.id == current_user.id }
         if @searchresults.empty?
             @searchresults = nil
             flash[:notice] = "Couldn't find a user with the name " + params[:search]
