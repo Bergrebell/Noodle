@@ -11,8 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.timepicker.js
 
 
 //= require_tree .
@@ -88,5 +90,11 @@ $(function() {
     $('#showcomments').click(function() {
         $('#comments').toggle('show');
     });
+
+    $('#datepicker').datepicker(
+        {dateFormat: 'dd-mm-yy'}
+    );
+
+    $('#timepicker').timepicker();
 });
 

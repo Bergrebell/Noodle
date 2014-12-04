@@ -1,4 +1,4 @@
- @font-face {
+@font-face {
     font-family: 'colaborate-thinregular';
     src: url('ColabThi-webfont.eot');
     src: url('ColabThi-webfont.eot?#iefix') format('embedded-opentype'),
@@ -513,7 +513,4 @@ a {
     cursor: pointer;    
 }
 
-
-
-
-
+ *= require jquery.timepicker.css

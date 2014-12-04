@@ -3,7 +3,7 @@
 
   <% @taskdates.each do |date| %>
     <div class="dates">
-      <p><%= date.task_date.strftime("%A, %d %B %Y") %></p>
+      <p><%= date.task_date.strftime("%A, %d %B %Y %H:%M") %></p>
       <%= link_to :url => "/delete_date", :id => date do%>
         <i class="fa fa-times"></i>
       <% end %>
@@ -13,20 +13,9 @@
   <div class="inputform" id="select_date_form">
     <%= form_for @task, :url => {action: "create_date"} do |f| %>
 
-        <!-- gibt da ein kleines problem! entweder man traegt das datum ohne calender ein od die zeit bleibt bei 00:00:00
-        <p><%= f.label :meeting_date, "Meeting Date", :as => :datetime_picker %>
-          <%= datetime_field("tasks", "meeting_date") %>
-        </p>
-        -->
+          <%= text_field("tasks", "meeting_date", placeholder: "dd-mm-yyyy", id: "datepicker") %>
 
-        <!--
-        <p><%= f.label :meeting_start_time, "Meeting Start Time" %>
-          <%= time_field("tasks", "meeting_time") %></p>
-        -->
-
-        <p>
-          <%= date_field("tasks", "meeting_date")%>
-        </p>
+          <%= text_field("tasks", "meeting_time", placeholder: "hh:mm", id: "timepicker") %>
 
         <p>
           <%= hidden_field_tag :id, @task.id %>
