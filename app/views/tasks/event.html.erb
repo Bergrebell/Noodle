@@ -9,6 +9,7 @@
             </div>
             <div class="suggested-dates">
                 <h2>Suggested Dates</h2>
+                <%= Selectdate.where(id: @suggestion.first.to_i).first.task_date %>
             </div>
         </div>
 

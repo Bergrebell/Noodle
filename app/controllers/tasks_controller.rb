@@ -90,10 +90,20 @@ class TasksController < ApplicationController
     @comments = Comment.where(task_id: params[:id])
     @participants = Attendee.where(participate: true, task_id: params[:id])
     @users = @participants.map { |p| User.find_by id: p.user_id }.to_set.to_a
-
+    score = Hash.new
+    @dates.each do |date|
+      score.merge!("#{date.id}" => 0)
+    end
+    @dates.each do |date|
+      responses = Response.where(selectdate_id: date.id)
+      responses.each do |response|
+        weight = Attendee.where(user_id: response.user_id, task_id: params[:id]).first.user_weight
+        score["#{date.id}"] += weight**2
+      end
+    end
+    score.sort_by { |k, v| v }.reverse
+    p @suggestion = score.first
   end
-
-
 
 
   private

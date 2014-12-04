@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20141204095700) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "task_id"
-    t.integer  "user_id"
   end
 
   create_table "tasks", force: true do |t|
