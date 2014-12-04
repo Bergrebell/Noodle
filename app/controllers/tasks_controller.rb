@@ -86,7 +86,8 @@ class TasksController < ApplicationController
 
   def event
     @task = Task.where(id: params[:id])
-    @dates = Selectdate.where(task_id: params[:id])
+    @dates = Selectdate.where(task_id: params[:id]).order('task_date')
+    p @dates
     @comments = Comment.where(task_id: params[:id])
     @participants = Attendee.where(participate: true, task_id: params[:id])
     @users = @participants.map { |p| User.find_by id: p.user_id }.to_set.to_a
@@ -103,7 +104,6 @@ class TasksController < ApplicationController
     end
     score = score.sort_by{ |k, v| v }.reverse
     @suggestion = score
-    p @suggestion
   end
 
 
