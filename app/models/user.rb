@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where(:username => search)
+      where('username LIKE ?', "%#{search}%")
     else
       find(:all)
     end
