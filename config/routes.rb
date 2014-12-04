@@ -43,16 +43,6 @@ Rails.application.routes.draw do
 
 
 
-####TESTAREA###################################
-  get "welcome/create" => "welcome#create", :as => "test"
-  get "welcome/new" => "welcome#new"
-  match "welcome/create" => "welcome#create", :via => :post
-###############################################
-
-
-
-
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

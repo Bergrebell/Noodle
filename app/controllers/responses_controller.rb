@@ -2,6 +2,7 @@ class ResponsesController < ApplicationController
     def new
         @dates = Selectdate.where(task_id: params[:id])
         p @dates
+        redirect_to "sessions/account"
     end
 
     def create

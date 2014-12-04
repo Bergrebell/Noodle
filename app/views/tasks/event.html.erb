@@ -36,15 +36,17 @@
                     <div class="avatar_small floatleft">
                         <%= image_tag avatar_url(participant.user, 50), :class => "avatar" %>
                     </div>
-                    <div class="fname">
-                        <%= participant.user.username %>
+                    <div class="fname floatleft">
+                        <%= link_to "#{participant.user.username}", "/users/#{participant.user_id}" %>
                     </div>
-                    <div class="fcompany">
+                    <div class="fcompany floatleft">
                         <%= participant.user.company %>
                     </div>
                 </div>
             <% end %>
         </div>
+
+
 
         <div class="event-comments floatleft">
             <a id="showcomments" class="btn-show floatright">show</a>

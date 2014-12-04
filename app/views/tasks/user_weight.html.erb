@@ -9,7 +9,7 @@
                         <%= part.user.username %>
                     </div>
                     <div class="select_weight floatright">
-                        <%= select_tag "users[#{part.user.id}][user_weight]", options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]], part.user_weight) %>
+                        <%= select_tag "users[#{part.user.id}][user_weight]", options_for_select([['very low', 1], ['low', 2], ['medium', 3], ['high', 4], ['very high', 5]], part.user_weight) %>
                     </div>
                 </div>
               <% end %>
