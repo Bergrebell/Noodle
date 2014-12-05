@@ -588,8 +588,6 @@ a {
     font-size: 20px;
 }
 
- //*= require jquery.timepicker.css
-
 .responses {
     line-height: 1.5;
 }
@@ -601,4 +599,12 @@ a {
 .check-date {
     margin-right: 40px;
 }
+
+#friends-profile {
+    margin-left: 50px;
+    float: left;
+    width: auto;
+}
+
+ /*= require jquery.timepicker.css
 
