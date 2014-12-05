@@ -75,6 +75,13 @@ a {
     min-width: 500px;
 }
 
+.page-description {
+    width: 450px;
+    text-align: justify;
+    margin: auto;
+    margin-top: 120px;
+}
+
 .button {
     background-color: #EC4E34;
     text-align: center;
@@ -205,6 +212,10 @@ a {
     text-align: center;
 }
 
+#new_user {
+    margin-top: 0;
+}
+
 .inputform {
     margin: auto;
     width: 500px;
@@ -214,6 +225,7 @@ a {
         margin: auto;
         width: 350px;
         margin-top: 150px;
+        text-align: center;
     }
 
         .inputform form input{
@@ -424,7 +436,7 @@ a {
     padding: 0 0 5px 5px;
 }
 
-.checkname {
+.checkname, .invite-date {
     padding: 6px 0 0 6px;
     color: #EC4E34;
 }
@@ -435,13 +447,13 @@ a {
     width: 120px;
 }
 
-.userweight {
+.userweight, .invite-response {
     margin-bottom: 5px;
     height: 25px;
     width: 120px;
 }
 
-.select_weight {
+.select_weight, .check-date {
     height: 25px;
     width: 25px;
     margin: 4px 0 0 5px;
@@ -574,6 +586,18 @@ a {
     text-align: center;
     font-weight: bold;
     font-size: 20px;
+}
+
+.responses {
+    line-height: 1.5;
+}
+
+.invite-response {
+    width: 350px;
+}
+
+.check-date {
+    margin-right: 40px;
 }
 
  *= require jquery.timepicker.css

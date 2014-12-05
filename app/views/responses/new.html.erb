@@ -1,15 +1,20 @@
 <div class="view">
     <h2>Respond to invite</h2>
-    <div class="inputform">
+    <div class="inputform responses">
         <%= form_tag("/responses", :method => "post") do %>
-
               <% for date in @dates %>
                 <% if date %>
-                    <%= check_box_tag  "date_checkbox[]", date.id %> 
-                    <%= date.task_date.strftime("%A, %d %B %Y %H:%M") %>
+                    <div class="invite-response">
+                        <div class="invite-date floatleft">
+                            <%= date.task_date.strftime("%A, %d %B %Y %H:%M") %>
+                        </div>
+                        <div class="check-date floatright">
+                            <%= check_box_tag  "date_checkbox[]", date.id %> 
+                        </div>
+                    </div>
                 <% end %>
               <% end %>
-            <%= submit_tag("Add", :class => "buttonshadow buttoninput select_button") %>
+            <%= submit_tag("Respond", :class => "buttonshadow buttoninput select_button") %>
         <% end %>
     </div>
 </div>
