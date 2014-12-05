@@ -142,6 +142,26 @@ a {
             transition: border-bottom .15s ease-in-out;
         }
 
+#account {
+    position: relative;
+}
+
+.notification {
+    position: absolute;
+    top: -10px;
+    right:-16px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    text-align: center;
+    background-color: #EC4E34;
+    color: white;
+    font-weight:bold;
+    font-size:0.83em;
+    border-radius: 10px;
+    box-shadow:1px 1px 1px gray;
+}
+
 .fa-user {
     margin-right: 40px;
 }
