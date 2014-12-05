@@ -18,7 +18,7 @@
     <div class="floatright accountcontainer" id="friends-profile">
       <h2>Friends</h2>
       <div id="friends">
-        <% for friendship in current_user.friendships %>
+        <% for friendship in @user.friendships %>
           <% if friendship.friend %>
             <%= link_to (friendship.friend), :action => :show, :id => friendship.friend.id do %>
               <div class="friend floatleft">
