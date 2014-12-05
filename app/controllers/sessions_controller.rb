@@ -26,7 +26,6 @@ class SessionsController < ApplicationController
             @taskids.each do |id|
               einvites.append(Task.where(id: id).flatten)
             end
-            p einvites
             @einvites = einvites
             render "account"
         else

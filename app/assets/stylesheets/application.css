@@ -47,7 +47,7 @@ h1 {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
     color: #EC4E34;
 }
 
@@ -62,6 +62,7 @@ a {
     background-color: white;
     overflow: hidden;
     min-width: 1000px;
+    max-width: 1030px;
     padding-bottom: 40px;
 }
 
@@ -72,6 +73,13 @@ a {
     padding-left: 50px;
     min-height: 700px;
     min-width: 500px;
+}
+
+.page-description {
+    width: 450px;
+    text-align: justify;
+    margin: auto;
+    margin-top: 120px;
 }
 
 .button {
@@ -204,6 +212,10 @@ a {
     text-align: center;
 }
 
+#new_user {
+    margin-top: 0;
+}
+
 .inputform {
     margin: auto;
     width: 500px;
@@ -213,6 +225,7 @@ a {
         margin: auto;
         width: 350px;
         margin-top: 150px;
+        text-align: center;
     }
 
         .inputform form input{
@@ -289,21 +302,27 @@ a {
 .friend, .event, .invite, .participant {
     width: 150px;
     height: 100px;
-    margin-right: 20px;
     margin-bottom: 20px;
+    margin-right: 20px;
     border-radius: 2px;
     box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+}
+
+.event-icon {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 35px;
 }
 
 .invite {
     margin-bottom: 50px;
 }
 
-    .friend:hover {
+    .friend:hover, .invite:hover, .event:hover {
         box-shadow: 0 0 2px rgba(0,0,0,.24),0 2px 4px rgba(0,0,0,.34);
     }
 
-.fname {
+.fname, .etitle, .invite-title {
     margin: 10px 5px 0 10px;
 }
 
@@ -341,7 +360,7 @@ a {
 }
 
 .eremove {
-    margin: 55px 10px 10px 0;
+    margin: -5px 10px 10px 0;
 }
 
 .confirmbutton {
@@ -417,7 +436,7 @@ a {
     padding: 0 0 5px 5px;
 }
 
-.checkname {
+.checkname, .invite-date {
     padding: 6px 0 0 6px;
     color: #EC4E34;
 }
@@ -428,13 +447,13 @@ a {
     width: 120px;
 }
 
-.userweight {
+.userweight, .invite-response {
     margin-bottom: 5px;
     height: 25px;
     width: 120px;
 }
 
-.select_weight {
+.select_weight, .check-date {
     height: 25px;
     width: 25px;
     margin: 4px 0 0 5px;
@@ -460,7 +479,7 @@ a {
 
 .participants {
     max-width: 510px;
-    margin-right: 84px;
+    margin-right: 50px;
 }
 
     .participants h2, .event-comments h2 {
@@ -502,7 +521,7 @@ a {
 
 .event-comments {
     max-width: 510px;
-    margin-right: 84px;
+    margin-right: 60px;
 }
 
     .event-comments form {
@@ -570,3 +589,16 @@ a {
 }
 
  //*= require jquery.timepicker.css
+
+.responses {
+    line-height: 1.5;
+}
+
+.invite-response {
+    width: 350px;
+}
+
+.check-date {
+    margin-right: 40px;
+}
+
