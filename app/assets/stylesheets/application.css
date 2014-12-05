@@ -318,7 +318,7 @@ a {
     margin-bottom: 50px;
 }
 
-    .friend:hover, .invite:hover, .event:hover {
+    .friend:hover, .invite:hover, .event:hover, .participant:hover {
         box-shadow: 0 0 2px rgba(0,0,0,.24),0 2px 4px rgba(0,0,0,.34);
     }
 

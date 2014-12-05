@@ -57,17 +57,19 @@
         <div class="participants floatright">
             <h2>Participants</h2>
             <% for participant in @participants do %>
-                <div class="participant floatleft">
-                    <div class="avatar_small floatleft">
-                        <%= image_tag avatar_url(participant.user, 50), :class => "avatar" %>
+                <%= link_to (participant.user), :controller => 'user', :action => :show, :id => participant.user.id do %>
+                    <div class="participant floatleft">
+                        <div class="avatar_small floatleft">
+                            <%= image_tag avatar_url(participant.user, 50), :class => "avatar" %>
+                        </div>
+                        <div class="fname floatleft">
+                            <%= participant.user.username %>
+                        </div>
+                        <div class="fcompany floatleft">
+                            <%= participant.user.company %>
+                        </div>
                     </div>
-                    <div class="fname floatleft">
-                        <%= link_to "#{participant.user.username}", "/users/#{participant.user_id}" %>
-                    </div>
-                    <div class="fcompany floatleft">
-                        <%= participant.user.company %>
-                    </div>
-                </div>
+                <% end %>
             <% end %>
         </div>
 
