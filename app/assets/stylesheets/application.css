@@ -1,3 +1,7 @@
+/*
+*= require jquery.timepicker.css
+*/
+
 @font-face {
     font-family: 'colaborate-thinregular';
     src: url('ColabThi-webfont.eot');
@@ -445,6 +449,10 @@ a {
     margin-bottom: 30px;
 }
 
+#datepicker {
+    margin-bottom: 10px;
+}
+
 .select_button {
     margin: 25px 0 10px 0 !important;
     width: 100px !important;
@@ -625,6 +633,4 @@ a {
     float: left;
     width: auto;
 }
-
- /*= require jquery.timepicker.css
 

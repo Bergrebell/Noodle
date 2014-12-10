@@ -95,6 +95,11 @@ $(function() {
         {dateFormat: 'dd-mm-yy'}
     );
 
-    $('#timepicker').timepicker();
+    $('#timepicker').timepicker({
+        'scrollDefault': 'now',
+        'step': 15,
+        'forceRoundTime': true,
+        'timeFormat': 'H:i'
+    });
 });
 
