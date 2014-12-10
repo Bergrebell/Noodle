@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
         if current_user
             @events = Task.where(user_id: current_user.id)
             @taskids = Attendee.where(user_id: current_user.id, participate: true, answered: nil).pluck(:task_id)
+            @attend = Attendee.where(user_id: current_user.id, answered: true)
             einvites = Array.new
             @taskids.each do |id|
               einvites.append(Task.where(id: id).flatten)

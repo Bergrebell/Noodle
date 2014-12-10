@@ -9,7 +9,7 @@
 </div>
 
 <div class="floatright accountcontainer" id="friendscontainer">
-  <h2>Your Friends</h2>
+  <h2>Following</h2>
   <div class="flashmsg fmaccount">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
@@ -42,7 +42,7 @@
 </div>
 
 <div class="floatright accountcontainer" id="created_events">
-  <h2>Your created events</h2>
+  <h2>Created events</h2>
     <% for event in @events %>
       <%= link_to(controller: "tasks", action: "event", id: event.id) do %>
         <div class="event floatleft">
@@ -62,8 +62,25 @@
     <% end %>
 </div>
 
+<div class="floatright accountcontainer" id="attending_events">
+  <h2>Attending</h2>
+    <% for attending in @attend %>
+      <% event = Task.where(id: attending.task_id).first %>
+      <%= link_to(controller: "tasks", action: "event", id: event.id) do %>
+        <div class="event floatleft">
+          <div class="etitle">
+            <%= event.title %>
+          </div>
+          <div class="event-icon">
+              <i class="fa fa-calendar-o"></i>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
 <div class="floatright accountcontainer" id="invites">
-  <h2>Your invites</h2>
+  <h2>Invites</h2>
     <% for invite in @einvites %>
       <% for event in invite %>
         <%= link_to(controller: "responses", action: "new", id: event.id) do %>
