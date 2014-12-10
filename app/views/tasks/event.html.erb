@@ -68,6 +68,9 @@
                         <div class="fcompany floatleft">
                             <%= participant.user.company %>
                         </div>
+                        <% if participant.answered != nil %>
+                            <i class="fa fa-check"> answered</i>
+                        <% end %>
                     </div>
                 <% end %>
             <% end %>

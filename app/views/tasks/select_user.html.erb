@@ -1,6 +1,6 @@
 <div class="view">
     <h2>Select Users</h2>
-    <div class="inputform">
+    <div class="inputform" id="select-user-form">
         <%= form_tag("/tasks/participate/", :method => "post", :id => @task) do %>
 
               <% for friendship in current_user.friendships %>
