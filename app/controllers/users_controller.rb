@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
         if @user.save
             flash[:notice] = "You signed up successfully"
+            session[:user_id] = @user.id
             render "welcome/index"
         else
             flash[:notice] = "Form is invalid"
