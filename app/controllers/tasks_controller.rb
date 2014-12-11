@@ -46,8 +46,8 @@ class TasksController < ApplicationController
   end
 
   def delete_date
-    @task = Task.find(params[:id])
-    @date = Selectdate.where(task_id: params[:id])
+    @task = Task.find(params[:task_id])
+    @date = Selectdate.where(id: params[:date_id]).first
     @date.destroy
     flash[:notice] = "Date removed"
     redirect_to :action => 'select_date', :id => @task

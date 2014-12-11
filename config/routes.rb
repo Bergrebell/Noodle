@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   match "tasks/participate" => "tasks#participate", :via => :post
   match "tasks/create_date" => "tasks#create_date", :via => :patch, :as => "create_date"
-  match "tasks/delete_date" => "tasks#delete_date", :via => :delete, :as => "delete_date"
+  get "tasks/delete_date/:task_id" => "tasks#delete_date", :as => "delete_date"
   match "tasks/create_user_weight" => "tasks#create_user_weight", :via => :patch, :as => "create_user_weight"
 
 
-  resources :tasks
+  resources :tasks, :except => :show
 
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"

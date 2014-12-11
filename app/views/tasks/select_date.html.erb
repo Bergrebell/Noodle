@@ -1,10 +1,10 @@
 <div class="view">
-  <h2 id="select_date_title">Select dates for: <%= @task.title %></h2>
+  <h2 id="select_date_title">Select dates</h2>
 
   <% @taskdates.each do |date| %>
     <div class="dates">
       <p><%= date.task_date.strftime("%A, %d %B %Y %H:%M") %></p>
-      <%= link_to :url => "/delete_date", :id => date do%>
+      <%= link_to delete_date_path(:date_id => date.id, :task_id => @task.id) do %>
         <i class="fa fa-times"></i>
       <% end %>
     </div>

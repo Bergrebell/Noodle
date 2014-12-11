@@ -433,12 +433,17 @@ a {
     width: 370px;
     margin: auto;
     margin-bottom: 10px;
+    text-align: right;
 }
 
     .dates p {
         padding: 5px 5px 5px 5px;
         text-align: center;
         margin: 0;
+    }
+
+    .dates i {
+        margin: 0 8px 6px 0;
     }
 
 #select_date_form {
