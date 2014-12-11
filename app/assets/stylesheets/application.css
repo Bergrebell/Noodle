@@ -407,6 +407,21 @@ a {
     margin-top: 40px;
 }
 
+.suggestion {
+    height: 500px;
+    width: 600px;
+    margin: auto;
+}
+
+#showsuggestions {
+    cursor: pointer;
+}
+
+.suggestions {
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
 .view {
     min-height: 700px;
 }
@@ -607,7 +622,7 @@ a {
     margin-right: 20px !important;
 }
 
-#comments, #attachments {
+#comments, #attachments, .suggestions {
     display: none;
 }
 

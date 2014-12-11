@@ -77,6 +77,10 @@ $(function() {
         $('#attachments').toggle('show');
     });
 
+    $('#showsuggestions').click(function() {
+        $('.suggestions').toggle('show');
+    });
+
     $('#datepicker').datepicker(
         {dateFormat: 'dd-mm-yy'}
     );

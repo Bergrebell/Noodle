@@ -2,27 +2,14 @@
   <i class="fa fa-arrow-left"></i>
 <% end %>
 
+<a id="showsuggestions" class="floatright">show suggestions</a>
+
 <div class="inputform inputsearch" id="friendsearch">
   <%= form_tag users_path, :method => "get" do %>
     <%= text_field_tag :search, params[:search], :class => "inputform" %>
     <%= submit_tag "Search", :name => nil, :class => "buttoninput buttonshadow"%>
   <% end %>
 </div>
-
-<!--<% if @users %>
-    <% for user in @users %>
-        <% if user != current_user %>
-          <div class="user">
-            <p>
-              <%= link_to user.username, controller: "users", action: "show", id: user.id %>
-              <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
-              <div class="clear"></div>
-            </p>
-          </div>
-        <% end %>
-    <% end %>
-<% end %>
--->
 
 <div id="asearch">
   <% if @searchresults != nil %>
@@ -53,6 +40,32 @@
         <% end %>
     </div>
   <% end %>
+  <div class="suggestion">
+    <% if @suggestion %>
+      <div class="suggestions">
+        <% for suggestion in @suggestion %>
+          <%= link_to (suggestion), :action => :show, :id => suggestion.id do %>
+              <div class="friend floatleft">
+                <div class="avatar_small floatleft">
+                  <%= image_tag avatar_url(suggestion, 50), :class => "avatar" %>
+                </div>
+                <div class="fname floatleft">
+                  <%= suggestion.username %>
+                </div>
+                <div class="fcompany floatleft">
+                  <%= suggestion.company %>
+                </div>
+                <div class="fadd">
+                  <%= link_to friendships_path(:friend_id => suggestion), :method => :post do%>
+                    <i class="fa fa-plus"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 

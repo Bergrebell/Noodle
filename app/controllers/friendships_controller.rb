@@ -10,6 +10,8 @@ class FriendshipsController < ApplicationController
             end
         end
         @users = users
+        suggestion = User.all
+        @suggestion = suggestion[0..5]
         render "addFriends"
     end
 
