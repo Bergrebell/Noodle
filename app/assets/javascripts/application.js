@@ -21,9 +21,12 @@
 
 $(function() {
 
-    setTimeout(function() {
-        $(".flashmsg").hide('slow');
-    }, 2000);
+    if($.trim($(".flashmsg").html())!=='') {
+        $(".flashmsg").show();
+        setTimeout(function() {
+            $(".flashmsg").hide('slow');
+        }, 2000);
+    }
 
     $("#password, #user_password").attr("placeholder", "Password");
     $("#user_password_confirmation").attr("placeholder", "Confirm Password");

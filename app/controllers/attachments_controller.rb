@@ -1,10 +1,13 @@
 class AttachmentsController < ApplicationController
+  
+  #Download file with id: :a_id
   def show
     @attachment = Attachment.where(id: params[:a_id]).first
     p @attachment
     send_data @attachment.data, :filename => @attachment.filename, :type => @attachment.content_type
   end
 
+    #initiate file upload
     def create
     return if params[:attachment].blank?
 

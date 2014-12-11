@@ -15,13 +15,13 @@ Rails.application.routes.draw do
   get "tasks/delete_date/:task_id" => "tasks#delete_date", :as => "delete_date"
   match "tasks/create_user_weight" => "tasks#create_user_weight", :via => :patch, :as => "create_user_weight"
 
-
   resources :tasks, :except => :show
 
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
   get "account" => "sessions#account", :as => "account"
+  get "help" => "welcome#show", :as => "help"
 
   get "addfriends" => "friendships#new", :as => "addfriends"
 
@@ -31,13 +31,9 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   resources :sessions
   resources :friendships
   resources :responses
-
-
 
   root 'welcome#index'
 end

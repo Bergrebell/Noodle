@@ -1,6 +1,8 @@
 class Attachment < ActiveRecord::Base
   belongs_to :task
 
+
+  #upload file and assign task_id
   def uploaded_file(file, id)
     self.filename = file.original_filename
     self.content_type = file.content_type

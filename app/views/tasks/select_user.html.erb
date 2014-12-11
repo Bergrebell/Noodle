@@ -1,5 +1,12 @@
 <div class="view">
     <h2>Select Users</h2>
+
+    <div class="flashmsg">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+    </div>
+    
     <div class="inputform" id="select-user-form">
         <%= form_tag("/tasks/participate/", :method => "post", :id => @task) do %>
 

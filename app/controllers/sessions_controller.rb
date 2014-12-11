@@ -1,23 +1,24 @@
 class SessionsController < ApplicationController
-    def new
-    end
 
+    #login user
     def create
       user = User.authenticate(params[:email], params[:password])
       if user
         session[:user_id] = user.id
         redirect_to root_url, :notice => "Logged in"
       else
-        flash.now.alert = "Invalid email or password"
+        flash[:notice] = "Invalid email or password"
         render "new"
       end
     end
 
+    #destroy user session e.g. logout
     def destroy
       session[:user_id] = nil
       redirect_to root_url, :notice => "Logged out"
     end
 
+    #show user account
     def account
         if current_user
             @events = Task.where(user_id: current_user.id)

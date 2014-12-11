@@ -1,5 +1,6 @@
 class FriendshipsController < ApplicationController
 
+    #show add Friends page
     def new
         @myfriendships = Friendship.where(:user_id => current_user.id)
         possiblefriends = User.all
@@ -10,11 +11,18 @@ class FriendshipsController < ApplicationController
             end
         end
         @users = users
-        suggestion = User.all
-        @suggestion = suggestion[0..5]
+        suggestions = Array.new
+        possiblesuggestion = User.all
+        possiblesuggestion.each do |suggestion|
+            if suggestion.id != current_user.id && !@myfriendships.exists?(:friend_id => suggestion.id)
+                suggestions.append(suggestion)
+            end
+        end
+        @suggestion = suggestions[0..8]
         render "addFriends"
     end
 
+    #create new friendship
     def create
         @myfriendships = Friendship.where(:user_id => current_user.id)
         if not @myfriendships.exists?(:friend_id => params[:friend_id])
@@ -32,6 +40,7 @@ class FriendshipsController < ApplicationController
         end    
     end
 
+    #destroy friendship with id: :id
     def destroy
         @friendship = current_user.friendships.find(params[:id])
         @friendship.destroy

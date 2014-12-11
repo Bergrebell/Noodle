@@ -3,6 +3,7 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
+    #create a new user and redirect to logged in state
     def create
         @user = User.new(user_params)
 
@@ -16,11 +17,13 @@ class UsersController < ApplicationController
         end
     end
 
+    #show user profile
     def show
         @user = User.find(params[:id])
         render "profile"
     end
 
+    #show add friends page and render search results
     def index
         @searchresults = User.search(params[:search]).to_a
         @searchresults.delete_if {|result| result.id == current_user.id }
@@ -30,7 +33,7 @@ class UsersController < ApplicationController
         end
         render "friendships/addFriends"
     end
-
+    
     def multiple_update
       @users = []
       params[:users].each do |id, attributes|

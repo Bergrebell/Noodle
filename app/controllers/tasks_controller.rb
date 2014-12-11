@@ -4,6 +4,7 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
+  #create a new event
   def create
     @task = Task.new(task_params)
     if @task.save
@@ -14,23 +15,26 @@ class TasksController < ApplicationController
     end
   end
 
+  #destroy a given event
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    flash[:notice] = "Removed task"
+    flash[:notice] = "Removed event"
     redirect_to account_path
   end
 
+  #show all events
   def show
     @task = Task.find(params[:id])
   end
 
-
+  #show select dates page
   def select_date
     @task = Task.find(params[:id])
     @taskdates = Selectdate.where(task_id: params[:id])
   end
 
+  #add dates to a given event
   def create_date
     @task = Task.find(params[:id])
     #@task.update_attributes!(meeting_date: params[:tasks][:meeting_date], meeting_start_time: params[:tasks][:started_at], meeting_end_time: params[:tasks][:ended_at])
@@ -45,6 +49,7 @@ class TasksController < ApplicationController
 
   end
 
+  #delete dates from a given event
   def delete_date
     @task = Task.find(params[:task_id])
     @date = Selectdate.where(id: params[:date_id]).first
@@ -53,10 +58,16 @@ class TasksController < ApplicationController
     redirect_to :action => 'select_date', :id => @task
   end
 
+  #show the select participant page
   def select_user
     @task = Task.find(params[:id])
+    if @task.selectdates.length < 2
+      flash[:notice] = "Please choose at least two dates"
+      redirect_to :action => 'select_date', :id => @task
+    end
   end
 
+  #add users to the event
   def participate
     @task = Task.find(params[:id])
     @task.users << User.all
@@ -72,18 +83,24 @@ class TasksController < ApplicationController
   end
 
 
+  #show the select user weight page
   def user_weight
-    @participants = Attendee.where(participate: true, task_id: params[:id])
     @task = Task.find(params[:id])
-    #@users = @participants.map { |p| User.find_by id: p.user_id }.to_set.to_a
+    users = @task.attendees.where(participate: true)
+    if users.length < 2
+      flash[:notice] = "Please choose at least two participants"
+      redirect_to :action => 'select_user', :id => @task
+    end
+    @participants = Attendee.where(participate: true, task_id: params[:id])
   end
 
-
+  #add user weights to participants
   def create_user_weight
     @participant = Attendee.where(participate: true, task_id: params[:id])
   end
 
 
+  #show the event overview page
   def event
     @task = Task.where(id: params[:id])
     @dates = Selectdate.where(task_id: params[:id]).order('task_date')

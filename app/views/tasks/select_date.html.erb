@@ -1,6 +1,12 @@
 <div class="view">
   <h2 id="select_date_title">Select dates</h2>
 
+  <div class="flashmsg">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+  </div>
+
   <% @taskdates.each do |date| %>
     <div class="dates">
       <p><%= date.task_date.strftime("%A, %d %B %Y %H:%M") %></p>

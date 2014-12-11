@@ -16,6 +16,9 @@
             <div id="nav">
                 <% if current_user %>
                     <div class="navelement" id="noodler">
+                        <%= link_to "Help", help_path %>
+                    </div>
+                    <div class="navelement" id="noodler">
                         <%= link_to "Noodlen", new_task_path %>
                     </div>
                     <div class="navelement" id="account">

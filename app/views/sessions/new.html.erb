@@ -9,4 +9,9 @@
       </p>
       <p><%= submit_tag "Log in", :class => "buttoninput buttonshadow" %></p>
     <% end %>
+    <div class="flashmsg">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+    </div>
 </div>
