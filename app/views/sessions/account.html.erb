@@ -16,6 +16,9 @@
     <% end %>
   </div>
   <div id="friends">
+    <% if current_user.friendships.length == 0 %>
+      <span>You are not following anybody.</span>
+    <% end %>
     <% for friendship in current_user.friendships %>
       <% if friendship.friend %>
         <%= link_to (friendship.friend), :action => :show, :id => friendship.friend.id do %>
@@ -43,6 +46,9 @@
 
 <div class="floatright accountcontainer" id="created_events">
   <h2>Created events</h2>
+    <% if @events.length == 0 %>
+      <span>You did not create any events yet. Do so <%= link_to "here", controller: 'tasks', action: 'new' %>.</span>
+    <% end %>
     <% for event in @events %>
       <%= link_to(controller: "tasks", action: "event", id: event.id) do %>
         <div class="event floatleft">
@@ -64,6 +70,9 @@
 
 <div class="floatright accountcontainer" id="attending_events">
   <h2>Attending</h2>
+  <% if @attend.length == 0 %>
+    <span>You are not attending any events yet.</span>
+  <% end %>
     <% for attending in @attend %>
       <% event = Task.where(id: attending.task_id).first %>
       <%= link_to(controller: "tasks", action: "event", id: event.id) do %>
@@ -81,6 +90,9 @@
 
 <div class="floatright accountcontainer" id="invites">
   <h2>Invites</h2>
+    <% if @attend.length == 0 %>
+      <span>You don't have any invites yet.</span>
+    <% end %>
     <% for invite in @einvites %>
       <% for event in invite %>
         <%= link_to(controller: "responses", action: "new", id: event.id) do %>
