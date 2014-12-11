@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211084543) do
+ActiveRecord::Schema.define(version: 20141211131343) do
 
   create_table "attachments", force: true do |t|
     t.string  "filename"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20141211084543) do
 
   create_table "selectdates", force: true do |t|
     t.datetime "task_date"
-    t.boolean  "participate"
     t.integer  "attendee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -68,9 +67,6 @@ ActiveRecord::Schema.define(version: 20141211084543) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "participate"
-    t.date     "meeting_date"
-    t.time     "meeting_start_time"
-    t.time     "meeting_end_time"
     t.integer  "user_id"
   end
 

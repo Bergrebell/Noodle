@@ -89,6 +89,9 @@
             <a id="showcomments" class="btn-show floatright">show</a>
             <h2>Comments</h2>
             <div id="comments">
+                <% if @comments.length == 0 %>
+                    <span>No comments</span>
+                <% end %>
                 <% for comment in @comments do %>
                     <div class="comment">
                         <div class="cmt-user floatleft">
@@ -114,6 +117,9 @@
             <a id="showattachments" class="btn-show floatright">show</a>
             <h2>Attachments</h2>
             <div id="attachments">
+                <% if @attachments.length == 0 %>
+                    <span>No attachments</span>
+                <% end %>
                 <% for attachment in @attachments do %>
                     <div class="attachment">
                         <div class="filename floatleft">
