@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'tasks/select_user', :as => "select_user"
   get 'task/event' => "tasks#event", :as => "event"
   post 'task/comments/create' => "comments#create"
+  post 'task/attachments/create' => "attachments#create"
+  get 'attachments/show',  :as => "download"
 
   match "tasks/participate" => "tasks#participate", :via => :post
   match "tasks/create_date" => "tasks#create_date", :via => :patch, :as => "create_date"

@@ -64,24 +64,6 @@ $(function() {
     $("#noodlen").mouseleave(function() {
         $(this).text('Noodlen');
     });
-/*
-    $("#account").mouseover(function() {
-        $(this).text('');
-        $(this).append('<i></i>');
-        $("i").css("position", "relative");
-        $("i").css("top", 2);
-        $("i").attr("class", "fa fa-user");
-    });
-
-    $("#account").mouseleave(function() {
-        $(this).text('My Account');
-    });
-
-    $("#search").one("keypress", function() {
-        $("form").animate({
-            'margin-top': "-=130px"
-        }, 300);
-    });*/
 
     $('.fa-times').click(function() {
         $(this).next(".confirmbutton").css("visibility", "visible");
@@ -89,6 +71,10 @@ $(function() {
 
     $('#showcomments').click(function() {
         $('#comments').toggle('show');
+    });
+
+    $('#showattachments').click(function() {
+        $('#attachments').toggle('show');
     });
 
     $('#datepicker').datepicker(

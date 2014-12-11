@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204163316) do
+ActiveRecord::Schema.define(version: 20141211084543) do
+
+  create_table "attachments", force: true do |t|
+    t.string  "filename"
+    t.string  "content_type"
+    t.binary  "data"
+    t.integer "task_id"
+  end
 
   create_table "attendees", force: true do |t|
     t.integer  "task_id"

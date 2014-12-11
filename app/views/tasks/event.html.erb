@@ -33,6 +33,15 @@
                     <% end %>
                 </div>
             </div>
+            <div id="fileupload">
+                <%= form_for :attachment, :url => "attachments/create", :multipart => true do |f| %>
+                    <%= f.file_field 'attachment' %>
+                    <div id="submit-attachment" class="button buttonshadow">
+                        <%= f.submit "upload" %>
+                    </div>
+                    <%= f.text_field :task_id, :class => "id_hide", :value => @task.first.id %>
+                <% end %>
+            </div>
         </div>
 
         <div class="event-dates floatright">
@@ -97,6 +106,25 @@
                     <%= f.text_field :task_id, :class => "id_hide", :value => @task.first.id %>
                         <%= f.text_area :text%>
                         <%= f.submit "send", class: "buttoninput buttonshadow floatright btn-comment" %>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="event-attachments floatright">
+            <a id="showattachments" class="btn-show floatright">show</a>
+            <h2>Attachments</h2>
+            <div id="attachments">
+                <% for attachment in @attachments do %>
+                    <div class="attachment">
+                        <div class="filename floatleft">
+                            <%= attachment.filename %>
+                        </div>
+                        <div class="btn-download floatright">
+                            <%= link_to download_path(a_id: attachment.id) do %>
+                                <i class="fa fa-cloud-download"></i>
+                            <% end %>
+                        </div>
+                    </div>
                 <% end %>
             </div>
         </div>

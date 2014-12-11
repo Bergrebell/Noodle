@@ -87,8 +87,9 @@ class TasksController < ApplicationController
   def event
     @task = Task.where(id: params[:id])
     @dates = Selectdate.where(task_id: params[:id]).order('task_date')
-    p @dates
     @comments = Comment.where(task_id: params[:id])
+    @attachments = Attachment.where(task_id: params[:id])
+    p @attachments
     @participants = Attendee.where(participate: true, task_id: params[:id])
     @users = @participants.map { |p| User.find_by id: p.user_id }.to_set.to_a
     score = Hash.new

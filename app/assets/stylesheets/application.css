@@ -511,7 +511,7 @@ a {
     margin-right: 30px;
     height: 100%;
     border-right: 1px solid #d6d7da;
-    padding: 0 10px 0 0;
+    padding: 0 20px 0 0;
 }
 
     .event-info h2 {
@@ -529,7 +529,7 @@ a {
     margin-right: 50px;
 }
 
-    .participants h2, .event-comments h2 {
+    .participants h2, .event-comments h2, .event-attachments h2 {
         text-align: left;
         margin-bottom: 20px;
         margin-top: 30px;
@@ -573,7 +573,7 @@ a {
     text-align: center;
 }
 
-.event-comments {
+.event-comments, .event-attachments {
     max-width: 510px;
     margin-right: 60px;
 }
@@ -586,9 +586,9 @@ a {
         height: 100px;
     }
 
-.comment {
+.comment, .attachment {
     overflow: auto;
-    padding-bottom: 10px;
+    padding: 10px 0 10px 0;
     border-bottom: 1px solid #d6d7da;
 }
 
@@ -607,11 +607,11 @@ a {
     margin-right: 20px !important;
 }
 
-#comments {
+#comments, #attachments {
     display: none;
 }
 
-#showcomments {
+#showcomments, #showattachments {
     cursor: pointer;   
     margin-top: 40px; 
 }
@@ -656,7 +656,26 @@ a {
 
 #friends-profile {
     margin-left: 50px;
-    float: left;
-    width: auto;
+    width: 60%;
 }
+
+#fileupload {
+
+}
+
+    #fileupload input {
+        background: none;
+        border: none;
+    }
+
+#submit-attachment {
+    margin-top: 10px;
+    width: 60px;
+}
+
+    #submit-attachment input {
+        width: 60px;
+        color: white;
+        cursor: pointer;
+    }
 

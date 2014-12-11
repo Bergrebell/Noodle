@@ -8,13 +8,14 @@
     <%= link_to "Add friends", addfriends_path, class: "button buttonshadow" %>
 </div>
 
+<div class="flashmsg fmaccount">
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+</div>
+
 <div class="floatright accountcontainer" id="friendscontainer">
   <h2>Following</h2>
-  <div class="flashmsg fmaccount">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-  </div>
   <div id="friends">
     <% if current_user.friendships.length == 0 %>
       <span>You are not following anybody.</span>
